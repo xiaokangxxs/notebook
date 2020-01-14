@@ -15,7 +15,8 @@
       name: '小康个人文档',//站点名称，会出现在侧边栏
       repo: 'https://github.com/xiaokangxxs/notebook.git',
 	  loadSidebar: true,
-	  subMaxLevel: 4,
+	  subMaxLevel: 4,//在自定义边栏中添加目录（TOC）。
+	  maxLevel: 6,//最大的内容表级别。
       coverpage: true,
 	  routerMode:'history',
 	  search: {
@@ -28,9 +29,18 @@
     }
   </script>
   <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
+  <script src="//unpkg.com/docsify-pagination/dist/docsify-pagination.min.js"></script>
   <!-- 引入搜索模块 -->
   <script src="//unpkg.com/docsify/lib/plugins/search.js"></script>
   <!-- copy to clipboard代码复制-->
   <script src="//unpkg.com/docsify-copy-code"></script>
+  <!-- Emoji插件 -->
+  <script src="//unpkg.com/docsify/lib/plugins/emoji.js"></script>
+  <script src="//unpkg.com/docsify/lib/plugins/zoom-image.min.js"></script>
+  <!-- markdown 代码高亮显示 https://unpkg.com/prismjs/components/ -->
+  <script src="//unpkg.com/prismjs/components/prism-bash.min.js"></script>
+  <script src="//unpkg.com/prismjs/components/prism-mysql.min.js"></script>
+  <script src="//unpkg.com/prismjs/components/prism-java.min.js"></script>
+  <script src="//unpkg.com/prismjs/components/prism-markdown.min.js"></script>
 </body>
 </html>
