@@ -38,7 +38,7 @@ Shell还是一个功能相当强大的编程语言，易编写、易调试、灵
        ./HelloWorld.sh
        ```
 
-    ![helloworld-1](D:\ShellGif\helloworld-1.gif)
+    ![helloworld-1](helloworld-1.gif)
 
   - 第二种：bash或sh+脚本（不用赋予脚本+x权限）
 
@@ -47,7 +47,7 @@ Shell还是一个功能相当强大的编程语言，易编写、易调试、灵
     sh HelloWorld-1.sh
     ```
 
-    ![helloworld-2](D:\ShellGif\helloworld-2.gif)
+    ![helloworld-2](helloworld-2.gif)
 
 ## 3.Shell中的变量
 
