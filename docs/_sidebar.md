@@ -4,3 +4,5 @@
 
 - [Linux](Linux/linux)
 
+- [Shell](Shell/shell)
+

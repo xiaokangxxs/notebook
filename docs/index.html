@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta name="description" content="Description">
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/pure.css">
+  <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/dark.css">
 </head>
 <body>
   <div id="app">小康温馨提示:加载中...</div>
@@ -15,10 +15,20 @@
       name: '小康个人文档',//站点名称，会出现在侧边栏
       repo: 'https://github.com/xiaokangxxs/notebook.git',
 	  loadSidebar: true,
-      coverpage: true
+	  subMaxLevel: 2,
+      coverpage: true,
+      search: {
+        maxAge: 86400000,               // 过期时间，单位毫秒，默认一天
+        paths: auto,                      // 匹配文件路径
+        placeholder: '搜索',  // 搜索提示框文字
+        noData: '未找到结果！',          // 找不到结果文字提示
+        depth: 4,                       // 搜索标题的最大程级, 1 - 6
+      }
     }
   </script>
   <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
+  <!-- 引入搜索模块 -->
+  <script src="//unpkg.com/docsify/lib/plugins/search.js"></script>
   <!-- copy to clipboard代码复制-->
   <script src="//unpkg.com/docsify-copy-code"></script>
 </body>
