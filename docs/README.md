@@ -1,6 +1,6 @@
 <a href="https://github.com/xiaokangxxs/notebook/blob/master/docs/README.md" target="_blank" rel="noopener"><img src="https://github.githubassets.com/images/icons/emoji/memo.png" alt="memo" class="emoji"> 编辑此文档</a>
 
-# 小康个人文档
+# :fas fa-home fa-fw:小康个人文档
 
 > [!tip]
 >
