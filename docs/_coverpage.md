@@ -1,4 +1,4 @@
-![logo](http://www.xiaokang.cool/static/images/document.png)
+![logo](document.png)
 > 一个动态生成文档网站的工具
 
 * 一个正在努力的开发者
