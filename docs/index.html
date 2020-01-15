@@ -11,6 +11,11 @@
   <link rel="stylesheet" href="//unpkg.com/gitalk/dist/gitalk.css">
   <!-- gif control -->
   <link rel="stylesheet" href="//unpkg.com/docsify-gifcontrol/dist/docsify-gifcontrol.css">
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="unpkg.com/@fortawesome/fontawesome-free/css/fontawesome.css" />
+  <link rel="stylesheet" href="unpkg.com/@fortawesome/fontawesome-free/css/brands.css" />
+  <link rel="stylesheet" href="unpkg.com/@fortawesome/fontawesome-free/css/regular.css" />
+  <link rel="stylesheet" href="unpkg.com/@fortawesome/fontawesome-free/css/solid.css" />
 </head>
 <body>
   <div id="app">小康温馨提示:加载中...</div>
@@ -58,6 +63,14 @@
       }
     }
   </script>
+  <!-- PDFObject.js is a required dependency of this plugin -->
+  <script src="//cdnjs.cloudflare.com/ajax/libs/pdfobject/2.1.1/pdfobject.min.js"></script> 
+  <!-- This is the source code of the pdf embed plugin -->
+  <script src="path-to-file/docsify-pdf-embed.js"></script>
+  <!-- or use this if you are not hosting the file yourself -->
+  <script src="//unpkg.com/docsify-pdf-embed-plugin/src/docsify-pdf-embed.js"></script>
+  <!-- fontawesome -->
+  <script src="//unpkg.com/docsify-fontawesome/dist/docsify-fontawesome.min.js"></script>
   <!-- Flexible Alerts -->
   <script src="https://unpkg.com/docsify-plugin-flexible-alerts"></script>
   <!-- footer plugins -->
