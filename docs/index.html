@@ -7,15 +7,15 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta name="description" content="Description">
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/buble.css">
-  <link rel="stylesheet" href="//unpkg.com/gitalk/dist/gitalk.css">
+  <link rel="stylesheet" href="css/themes/buble.css">
+  <link rel="stylesheet" href="css/dist/gitalk.css">
   <!-- gif control -->
-  <link rel="stylesheet" href="//unpkg.com/docsify-gifcontrol/dist/docsify-gifcontrol.css">
+  <link rel="stylesheet" href="css/dist/docsify-gifcontrol.css">
   <!-- FontAwesome -->
-  <link rel="stylesheet" href="unpkg.com/@fortawesome/fontawesome-free/css/fontawesome.css" />
-  <link rel="stylesheet" href="unpkg.com/@fortawesome/fontawesome-free/css/brands.css" />
-  <link rel="stylesheet" href="unpkg.com/@fortawesome/fontawesome-free/css/regular.css" />
-  <link rel="stylesheet" href="unpkg.com/@fortawesome/fontawesome-free/css/solid.css" />
+  <link rel="stylesheet" href="css/fontawesome.css" />
+  <link rel="stylesheet" href="css/brands.css" />
+  <link rel="stylesheet" href="css/regular.css" />
+  <link rel="stylesheet" href="css/solid.css" />
 </head>
 <body>
   <div id="app">小康温馨提示:加载中...</div>
@@ -64,58 +64,60 @@
     }
   </script>
   <!-- PDFObject.js is a required dependency of this plugin -->
-  <script src="//cdnjs.cloudflare.com/ajax/libs/pdfobject/2.1.1/pdfobject.min.js"></script> 
+  <script src="js/pdfobject/pdfobject.min.js"></script> 
   <!-- This is the source code of the pdf embed plugin -->
   <script src="Docker-xiaokang.pdf/docsify-pdf-embed.js"></script>
   <script src="Books/Hadoop权威指南（第四版）.pdf/docsify-pdf-embed.js"></script>
   <script src="Books/鸟哥的Linux私房菜（第四版）.pdf/docsify-pdf-embed.js"></script>
   <!-- or use this if you are not hosting the file yourself -->
-  <script src="//unpkg.com/docsify-pdf-embed-plugin/src/docsify-pdf-embed.js"></script>
+  <script src="js/src/docsify-pdf-embed.js"></script>
   <!-- fontawesome -->
-  <script src="//unpkg.com/docsify-fontawesome/dist/docsify-fontawesome.min.js"></script>
+  <script src="js/dist/docsify-fontawesome.min.js"></script>
   <!-- Flexible Alerts -->
-  <script src="https://unpkg.com/docsify-plugin-flexible-alerts"></script>
+  <script src="js/docsify-plugin-flexible-alerts.min.js"></script>
   <!-- footer plugins -->
-  <script src="//unpkg.com/docsify-footer-enh/dist/docsify-footer-enh.min.js"></script>
+  <script src="js/dist/docsify-footer-enh.min.js"></script>
   <!-- 外部脚本 -->
-  <script src="//unpkg.com/docsify/lib/plugins/external-script.min.js"></script>
-  <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
+  <script src="js/plugins/external-script.min.js"></script>
+  <!-- docsify核心js -->
+  <script src="js/lib/docsify.min.js"></script>
   <!-- 引入搜索模块 -->
-  <script src="//unpkg.com/docsify/lib/plugins/search.js"></script>
-  <!-- copy to clipboard代码复制-->
-  <script src="//unpkg.com/docsify-copy-code"></script>
+  <script src="js/plugins/search.js"></script>
+  <!-- 代码复制-->
+  <script src="js/docsify-copy-code.min.js"></script>
   <!-- Emoji插件 -->
-  <script src="//unpkg.com/docsify/lib/plugins/emoji.js"></script>
-  <script src="//unpkg.com/docsify/lib/plugins/zoom-image.min.js"></script>
-  <!-- markdown 代码高亮显示 https://unpkg.com/prismjs/components/ -->
-  <script src="//unpkg.com/prismjs/components/prism-bash.min.js"></script>
-  <script src="//unpkg.com/prismjs/components/prism-sql.min.js"></script>
-  <script src="//unpkg.com/prismjs/components/prism-java.min.js"></script>
-  <script src="//unpkg.com/prismjs/components/prism-markdown.min.js"></script>
+  <script src="js/plugins/emoji.js"></script>
+  <!-- 图片放大 -->
+  <script src="js/plugins/zoom-image.min.js"></script>
+  <!-- 代码高亮显示 -->
+  <script src="js/components/prism-bash.min.js"></script>
+  <script src="js/components/prism-sql.min.js"></script>
+  <script src="js/components/prism-java.min.js"></script>
+  <script src="js/components/prism-markdown.min.js"></script>
   <!-- gif control -->
-  <script src="//unpkg.com/docsify-gifcontrol/dist/docsify-gifcontrol.js"></script>
+  <script src="js/dist/docsify-gifcontrol.js"></script>
   <!-- 评论插件 -->
-  <script src="//unpkg.com/docsify/lib/plugins/gitalk.min.js"></script>
-<script src="//unpkg.com/gitalk/dist/gitalk.min.js"></script>
-<script>
-  var gitalk = new Gitalk({
-      clientID: '738e8f75f94a06ce2d1d',
-      clientSecret: '3785cd122028975d06712e4e904c6447f885c680',
-      repo: 'notebook',
-      owner: 'xiaokangxxs',
-      admin: ['xiaokangxxs'],
-      title: location.hash.match(/#(.*?)([?]|$)/)[1],
-      id: location.hash.match(/#(.*?)([?]|$)/)[1],
-	  distractionFreeMode: false  // Facebook-like distraction free mode
-    })
-  // 监听URL中hash的变化，如果发现换了一个MD文件，那么刷新页面，解决整个网站使用一个gitalk评论issues的问题。
-    window.onhashchange = function(event){
-      if(event.newURL.split('?')[0] !== event.oldURL .split('?')[0]) {
-        location.reload()
-      }
-    }
-</script>
-<!-- 分页插件：上一章、下一章 -->
-<script src="//unpkg.com/docsify-pagination/dist/docsify-pagination.min.js"></script>
+  <script src="js/plugins/gitalk.min.js"></script>
+  <script src="js/dist/gitalk.min.js"></script>
+  <!-- 分页插件：上一章、下一章 -->
+  <script src="js/dist/docsify-pagination.min.js"></script>
+  <script>
+	  var gitalk = new Gitalk({
+		  clientID: '738e8f75f94a06ce2d1d',
+		  clientSecret: '3785cd122028975d06712e4e904c6447f885c680',
+		  repo: 'notebook',
+		  owner: 'xiaokangxxs',
+		  admin: ['xiaokangxxs'],
+		  title: location.hash.match(/#(.*?)([?]|$)/)[1],
+		  id: location.hash.match(/#(.*?)([?]|$)/)[1],
+		  distractionFreeMode: false  // Facebook-like distraction free mode
+		})
+	  // 监听URL中hash的变化，如果发现换了一个MD文件，那么刷新页面，解决整个网站使用一个gitalk评论issues的问题。
+		window.onhashchange = function(event){
+		  if(event.newURL.split('?')[0] !== event.oldURL .split('?')[0]) {
+			location.reload()
+		  }
+		}
+  </script>
 </body>
 </html>
