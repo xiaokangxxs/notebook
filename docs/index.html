@@ -16,6 +16,8 @@
   <link rel="stylesheet" href="css/brands.css" />
   <link rel="stylesheet" href="css/regular.css" />
   <link rel="stylesheet" href="css/solid.css" />
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="/js/tctip.min.js"></script>
 </head>
 <body>
   <div id="app">小康温馨提示:加载中...</div>
@@ -36,7 +38,7 @@
 			depth: 4                       // 搜索标题的最大程级, 1 - 6
         },
 	   footer: {
-		  copy: '<span>小康 &copy; 2020 Powered By </span>',
+		  copy: '<span>小康 &copy; 2020 Powered By</span>',
 		  auth: 'xiaokang',
 		  pre: '<hr/>',
 		  style: 'text-align: right;'
@@ -119,5 +121,67 @@
 		  }
 		}
   </script>
+  <script>
+    //社会主义核心价值观
+	let a_idx = 0;
+	$("body").click(function(e) {
+		var a = new Array("富强", "民主", "文明", "和谐", "自由", "平等", "公正" ,"法治", "爱国", "敬业", "诚信", "友善");
+		var $i = $("<span/>").text(a[a_idx]);
+		a_idx = (a_idx + 1) % a.length;
+		var x = e.pageX,
+		y = e.pageY;
+		$i.css({
+			"z-index": 999999999999999999999999999999999999999999999999999999999999999999999,
+			"top": y - 20,
+			"left": x,
+			"position": "absolute",
+			"font-weight": "bold",
+			"color": "#0074D9"
+		});
+		$("body").append($i);
+		$i.animate({
+			"top": y - 180,
+			"opacity": 0
+		},
+		1500,
+		function() {
+			$i.remove();
+		});
+	});
+  </script>
+  <!-- 打赏 -->
+	<script>
+	window.tctipConfig = {
+             //最上面的文字
+             headText: "欢迎打赏支持我 ^_^",
+             //侧边栏文本
+             siderText: "公告 & 打赏",
+             //侧边栏文本高度调整
+             siderTextTop: "-72px",
+             //侧边栏背景颜色
+             siderBgcolor: "#0074D9",
+             //整个侧边栏的高度设置
+             siderTop:"118px",
+             //底部文字
+             buttomText:"了解更多",
+             //底部文字链接
+             buttomLink:"https://github.com/haddyyang/tctip",
+	        //显示列表
+	        list:{
+	            notice: {name:"公告栏", className:"myR-on",
+	                     icon: "${pageContext.request.contextPath}/static/qr/tip.png",  
+	                     text: '2019.12.24加入右侧打赏！！！'
+	                    },
+	            alipay: {name:"支付宝", desc: "用支付宝给“小康”打赏", 
+	                     icon: "${pageContext.request.contextPath}/static/qr/alipay.png", 
+	                     qrimg: "${pageContext.request.contextPath}/static/qr/alipay.jpg"
+	                    },
+	            weixin: {name:"微信", desc: "用微信给“小康”打赏", 
+	                     icon: "${pageContext.request.contextPath}/static/qr/weixin.png",
+	                     qrimg: "${pageContext.request.contextPath}/static/qr/weixin.jpg"
+	                    }    
+	        }
+	    };
+</script>
 </body>
 </html>
