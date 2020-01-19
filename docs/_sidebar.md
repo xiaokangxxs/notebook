@@ -1,3 +1,6 @@
+<div align="center"><img src="gzh.jpg" width="72" height="72" title="微信公众号:小康新鲜事儿" alt="微信公众号:小康新鲜事儿"></div>
+<span class="wechat">微信扫一扫，关注该公众号</span>
+
 - :corn: <strong><font color="#0074D9">学习总结</font></strong>
     - [① SQL](SQL/sql)
     - [② Maven](Maven/maven)
