@@ -194,7 +194,34 @@ $! （后台运行的最后一个进程的进程号（PID））
 
 ![判断语句](shell-judge-1.gif)
 
+```bash
+#23是否大于等于22
+[ 23 -ge 22 ]
+#judge.sh是否具有可执行权限
+[ -x judge.sh ]
+#/root/shiro.ini是否存在
+[ -e /root/shiro.ini]
+```
+
 ## 6.流程控制
+
+### 1.if判断
+
+- 基本语法
+
+  ```bash
+  #语法一
+  if[ 条件判断式 ];then
+  	程序
+  fi
+  #语法二
+  if[ 条件判断式 ]
+  	then
+  		程序
+  fi
+  ```
+
+- 案例实操
 
 
 
