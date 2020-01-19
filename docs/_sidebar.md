@@ -11,6 +11,10 @@
     - [① jdk的安装](Linux/jdk)
 
 - :open_book: <strong><font color="#0074D9">电子书籍</font></strong>
+    - [循序渐进学Docker :fire:](Books/docker)
+    - [Git权威指南](Books/git)
+    - [精通正则表达式（第三版）](Books/regex)
+    - [鸟哥的Linux私房菜（第四版）](Books/birds)
     - [Hadoop权威指南（第四版）](Books/hadoop01)
     - [Hadoop实战-陆嘉恒(高清完整中文版)](Books/hadoop02)
-    - [鸟哥的Linux私房菜（第四版）](Books/birds)
+    - [HBase实战](Books/hbase)

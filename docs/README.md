@@ -6,6 +6,7 @@
 >
 > :point_right:	微信公众号：小康新鲜事儿
 
+<span class="typed">新版每日一句-微信公众号：小康新鲜事儿</span>
 
 :blue_book: Docker-xiaokang.pdf
 ```pdf
