@@ -211,19 +211,102 @@ $! （后台运行的最后一个进程的进程号（PID））
 
   ```bash
   #语法一
-  if[ 条件判断式 ];then
+  if [ 条件判断式 ]; then
   	程序
   fi
   #语法二
-  if[ 条件判断式 ]
-  	then
+  if [ 条件判断式 ]
+  then
   		程序
   fi
   ```
 
 - 案例实操
 
+  ```bash
+  #!/bin/bash
+  if [ 24 -lt 24  ]
+  then
+          ./HelloWorld.sh
+  elif [ $1 -ge 11  ]
+  then
+          echo "$1 is great than 11"
+  else
+          echo "The judge is failed."
+  fi
+  ```
 
+![if判断](shell-if.gif)
+
+### 2.case语句
+
+- 基本语法
+
+  ```bash
+  case $变量名 in
+  	"值1")
+  		如果变量的值等于值1，则执行程序1
+  		;;
+  	"值2")
+  		如果变量的值等于值1，则执行程序1
+  		;;
+  	...省略其他分支...
+  	*)
+  		如果变量的值都不是以上的值，则执行此程序
+  		;;
+  	esac
+  ```
+
+- 案例实操
+
+  ```bash
+  #!/bin/bash
+  case $1 in
+  1)
+          echo 1
+          ;;
+  2)
+          echo 2
+          ;;
+  *)
+          echo This is other.
+          ;;
+  esac
+  ```
+
+![case语句](shell-case.gif)
+
+### 3.for循环
+
+- 基本语法
+
+  ```bash
+  #语法一
+  for 变量 in 值1 值2 值3...
+      do
+          some processing
+      done
+  #语法二
+  for (( 初始值;循环控制条件;变量变化 ))
+      do
+          some processing
+      done
+  ```
+
+- 案例实操
+
+  ```bash
+  #!/bin/bash
+  for i in "$*"
+          do
+                  echo "The number is $i"
+          done
+  #!/bin/bash
+  for i in "$@"
+          do
+                  echo "The number is $i"
+          done
+  ```
 
 ## 7.read读取控制台输入
 

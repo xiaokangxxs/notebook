@@ -4,7 +4,7 @@
 
 建表
 
-```mysql
+```sql
 DROP TABLE IF EXISTS `students_score`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
@@ -68,7 +68,7 @@ UNLOCK TABLES;
 
 - sql语句
 
-  ```mysql
+  ```sql
   select cname 姓名,
       MAX(if(cource='语文',score,0)) as 语文,
       MAX(if(cource='数学',score,0)) as 数学,
@@ -88,7 +88,7 @@ UNLOCK TABLES;
 
 ## 2.时间格式化相关
 
-```mysql
+```sql
 year(date)：获取date字段的年，如2020
 quarter(date)：获取date字段的所属季度，如3
 date_format(date,"%y-%m")：将date字段的时间格式化成xx-xx格式，如2020-01
@@ -159,7 +159,7 @@ docker run -d -p 60097:8080 -v zeppelin-logs:/logs -v  zeppelin-notebook:/notebo
 
 ## 5.练习-客户&交易分析&&门店分析
 
-```mysql
+```sql
 #一、客户信息分析(1.最受欢迎的信用卡)
 select credit_type,count(distinct credit_no) as no_count
 from customer_details
@@ -376,7 +376,7 @@ ON sd.store_id=xk.store_id
 
 2. 排序
 
-   ```mysql
+   ```sql
    ROW_NUMBER()->#对所有数值输出不同的序号，序号唯一连续（1，2，3）
    
    RANK()->#对于相同数值，输出相同的序号，排序不会连续（1，1，3） 
@@ -384,7 +384,7 @@ ON sd.store_id=xk.store_id
    DENSE_RANK()->#对于相同数值，输出相同的序号，排序连续（1，1，2）
    ```
 
-   ```mysql
+   ```sql
    #对于各个部门的薪水进行排名，按照薪水的高到低
    select name,dept_num,salary,
       row_number() over(partition by dept_num order by salary ) as row_num,
@@ -398,7 +398,7 @@ ON sd.store_id=xk.store_id
 
 3. 聚合
 
-   ```mysql
+   ```sql
    #1.统计最近两年各季度的累加利润
    select concat(year(order_time),"-",quarter(order_time)) as order_quarter,order_money,
        SUM(order_money) over(order by year(order_time),quarter(order_time)) as year_quarter_mondey
@@ -420,7 +420,7 @@ ON sd.store_id=xk.store_id
 
    ![](window.png)
 
-   ```mysql
+   ```sql
    SELECT
       name, dept_num AS dept, salary AS sal,
       MAX(salary) OVER (PARTITION BY dept_num ORDER BY name ROWS BETWEEN 2 PRECEDING AND CURRENT ROW) win1,
@@ -445,7 +445,7 @@ ON sd.store_id=xk.store_id
 
 4. 分析
 
-   ```mysql
+   ```sql
    SELECT name, dept_num, salary,
                  LEAD(salary, 2) OVER(PARTITION BY dept_num ORDER BY salary) AS lead1,
                  LAG(salary, 2, 0) OVER(PARTITION BY dept_num ORDER BY salary) AS lag1,
@@ -461,7 +461,7 @@ ON sd.store_id=xk.store_id
 
 ## 7.窗口函数练习
 
-```mysql
+```sql
 #1、统计order_items表中销量最多的前10个商品
 SELECT order_item_product_id,
 	SUM(order_item_quantity) AS total_quantity
@@ -485,7 +485,7 @@ FROM order_items
 
 ## 8.表数据
 
-```mysql
+```sql
 CREATE DATABASE  IF NOT EXISTS `retail_db` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
 USE `retail_db`;
 -- MySQL dump 10.13  Distrib 8.0.18, for Win64 (x86_64)
