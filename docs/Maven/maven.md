@@ -109,5 +109,3 @@ mvn archetype:generate -DgroupId=cool.xiaokang -DartifactId=MavenDemoCmd -Dversi
     </exclusion>
 </exclusions>
 ```
-
-​                                                                                                                                              **微信公众号：小康新鲜事儿**
