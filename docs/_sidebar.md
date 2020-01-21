@@ -19,3 +19,6 @@
     - [Hadoop权威指南（第四版）](Books/hadoop01)
     - [Hadoop实战-陆嘉恒(高清完整中文版)](Books/hadoop02)
     - [HBase实战](Books/hbase)
+
+- :iphone: <strong><font color="#0074D9">玩机技巧</font></strong>
+    - [① You-Get-中文说明](Phone/you-get)
