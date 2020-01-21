@@ -301,16 +301,184 @@ $! （后台运行的最后一个进程的进程号（PID））
           do
                   echo "The number is $i"
           done
-  #!/bin/bash
-  for i in "$@"
-          do
-                  echo "The number is $i"
-          done
   ```
+
+  ```bash
+#!/bin/bash
+for i in "$@"
+        do
+                echo "The number is $i"
+        done
+  ```
+
+  ```bash
+  #!/bin/bash
+  s=0
+  for (( i=0;i<=100;i++  ))
+          do
+                  s=$[$s+$i]
+          done
+  echo "$s"
+  ```
+
+![for循环](shell-for.gif)
+
+### 4.while循环
+
+- 基本语法
+
+  ```bash
+  while [ 条件判断式 ]
+  	do
+  		some processing
+  	done
+  ```
+
+- 案例实操
+
+  ```bash
+  #!/bin/bash
+  sum=0
+  i=1
+  while [ $i -le 100 ]
+  do
+          sum=$[$sum+$i]
+          i=$[$i+1]
+  done
+  echo "$sum"
+  ```
+
+![while循环](shell-while.gif)
 
 ## 7.read读取控制台输入
 
+- 基本语法
 
+  ```bash
+  read (选项) (参数)
+  选项：
+  	-p 指定读取值时的提示符
+  	-t 指定读取值时等待的时间(秒)
+  参数：
+  	变量：指定读取值的变量名
+  ```
+
+- 案例实操
+
+  ```bash
+  #!/bin/bash
+  read -t 5 -p "Please input your nickname>>>" NICKNAME
+  echo $NICKNAME
+  ```
+
+![read读取控制台输入](shell-read.gif)
 
 ## 8.函数
 
+### 1.系统函数
+
+1. basename
+
+   - 功能描述
+
+     `basename命令会删掉所有的前缀包括最后一个（‘/’）字符，然后将字符串显示出来`
+
+   - 基本语法
+
+     ```bash 
+     basename [pathname] [suffix]
+     basename [string] [suffix]
+     选项:
+     	suffix为后缀，如果suffix被指定了，basename会将pathname或string中的suffix去掉
+     ```
+
+   - 案例实操
+
+     ```bash
+     [root@hadoop01 shellExercise]# ll /opt/
+     total 8
+     drwx--x--x 4 root root 4096 Jan  5 13:03 containerd
+     drwxr-x--- 3 root root 4096 Jan  7 08:05 tomcat9
+     -rw-r--r-- 1 root root    0 Jan 21 18:58 xiaokang.txt
+     [root@hadoop01 shellExercise]# basename /opt/xiaokang.txt 
+     xiaokang.txt
+     [root@hadoop01 shellExercise]# basename /opt/xiaokang.txt .tx
+     xiaokang.txt
+     [root@hadoop01 shellExercise]# basename /opt/xiaokang.txt .txt
+     xiaokang
+     ```
+
+     ![basename](shell-basename.gif)
+
+2. dirname
+
+   - 功能描述
+
+     `从给定的包含绝对路径的文件名中去除文件名（非目录部分），然后返回剩下的路径（目录的部分）`
+
+   - 基本语法
+
+     ```bash
+     dirname 文件绝对路径
+     ```
+
+   - 案例实操
+
+     ```bash
+     [root@hadoop01 shellExercise]# ll
+     total 56
+     -rw-r--r-- 1 root root  70 Jan 18 17:24 argNum.sh
+     -rw-r--r-- 1 root root 109 Jan 18 18:13 calculate.sh
+     -rw-r--r-- 1 root root  86 Jan 20 15:44 case.sh
+     -rw-r--r-- 1 root root  62 Jan 20 16:02 for1.sh
+     -rw-r--r-- 1 root root  76 Jan 21 17:45 for2.sh
+     -rw-r--r-- 1 root root  86 Jan 21 18:10 for-sum.sh
+     -rw-r--r-- 1 root root  62 Jan 21 18:09 for-test.sh
+     -rw-r--r-- 1 root root  51 Jan  6 11:38 HelloWorld-1.sh
+     -rwxrwxrwx 1 root root  49 Jan  6 11:28 HelloWorld.sh
+     -rw-r--r-- 1 root root 143 Jan 20 15:14 if.sh
+     -rw-r--r-- 1 root root 337 Jan 18 19:13 judge.sh
+     -rw-r--r-- 1 root root 162 Jan 18 17:44 prepared.sh
+     -rw-r--r-- 1 root root  81 Jan 21 18:36 read.sh
+     -rw-r--r-- 1 root root  90 Jan 21 18:18 while.sh
+     [root@hadoop01 shellExercise]# dirname judge.sh 
+     .
+     [root@hadoop01 shellExercise]# dirname /opt/xiaokang.txt 
+     /opt
+     ```
+
+     ![dirname](shell-dirname.gif)
+
+### 2.自定义函数
+
+- 基本语法
+
+  ```bash
+  [ function ] funname[()]
+  {
+  	Action;
+  	[return int;]
+  }
+  funname
+  ```
+
+- 经验技巧
+
+  - 必须在调用函数地方之前，先声明函数，Shell脚本是逐行运行，不会像其它语言一样先编译
+  - 函数返回值，只能通过$?系统变量获得，可以显示的添加return返回，如果不加，将以最后一条命令运行结果，作为返回值。return后面跟数值n（0-255）
+
+- 案例实操
+
+  ```bash
+  #!/bin/bash
+  function sum(){
+          SUM=0
+          SUM=$[$1+$2]
+  echo $SUM
+  }
+  read -p "Please input num1>>" n1
+  read -p "Please input num2>>" n2
+  sum $n1 $n2
+  ```
+
+![自定义函数](shell-diy.gif)

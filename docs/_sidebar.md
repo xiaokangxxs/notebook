@@ -22,3 +22,4 @@
 
 - :iphone: <strong><font color="#0074D9">玩机技巧</font></strong>
     - [① You-Get-中文说明](Phone/you-get)
+    - [② emoji-list](Phone/emoji)
