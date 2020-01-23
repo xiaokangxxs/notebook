@@ -4,7 +4,7 @@
 
 ### 1.1、什么是Mybatis
 
- ![MyBatis logo](mybatis/mybatis-logo.png) 
+ ![MyBatis logo](Mybatis/mybatis-logo.png) 
 
 - MyBatis 是一款优秀的**持久层框架**
 - 它支持定制化 SQL、存储过程以及高级映射
@@ -289,7 +289,7 @@ public class MybatisUtils {
 
 - junit测试
 
- 遇到以下错误![junit](mybatis/junit.png)
+ 遇到以下错误![junit](Mybatis/junit.png)
 
 父工程的pom.xml中添加如下代码
 
@@ -299,7 +299,7 @@ public class MybatisUtils {
 </properties>
 ```
 
-![binding-exception](mybatis/binding-exception.png)
+![binding-exception](Mybatis/binding-exception.png)
 
 UserMapper.xml中添加如下代码
 
@@ -312,7 +312,7 @@ UserMapper.xml中添加如下代码
 
 maven由于它的约定大于配置，就会出现如下配置文件无法被导出或生效的问题
 
-![xml-resources](mybatis/xml-resources.png)
+![xml-resources](Mybatis/xml-resources.png)
 
 解决方法如下，为了保证万无一失，父工程和子工程的pom.xml中都加入如下代码
 
@@ -342,7 +342,7 @@ maven由于它的约定大于配置，就会出现如下配置文件无法被导
 
 将此处的对勾去掉，创建包的时候就不会是点隔开的了，而是分级展开
 
-![package](mybatis/package.png)
+![package](Mybatis/package.png)
 
 ```java
 package cool.xiaokang.dao;
@@ -376,7 +376,7 @@ public class UserDaoTest {
 }
 ```
 
-![successfully-noe](mybatis/successfully-one.png)
+![successfully-noe](Mybatis/successfully-one.png)
 
 ## 3、CRUD
 
@@ -602,9 +602,9 @@ public class User {}
 
  这是 MyBatis 中极为重要的调整设置，它们会改变 MyBatis 的运行时行为。 
 
-![image-20200104174549758](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20200104174549758.png)
+![settings-1](Mybatis/settings-1.png)
 
-![image-20200104174646794](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20200104174646794.png)
+![settings-2](Mybatis/settings-2.png)
 
 ### 6、其它配置
 
@@ -685,7 +685,7 @@ MapperRegistry:注册绑定我们的Mapper文件
 
 数据库中字段如下
 
-![database](mybatis/database-list.png)
+![database](Mybatis/database-list.png)
 
 测试实体类字段不一致的情况
 
@@ -718,7 +718,7 @@ public class User {
 
 测试出现如下问题
 
-![result-null](mybatis/result-null.png)
+![result-null](Mybatis/result-null.png)
 
 ```xml
 select * from user
@@ -770,7 +770,7 @@ select id,name,pwd from user
 
 now:日志工厂！！！
 
-![log](mybatis/log.png)
+![log](Mybatis/log.png)
 
 - SLF4J 
 - LOG4J 【掌握】
@@ -792,7 +792,7 @@ STDOUT_LOGGING标准日志输出
 </settings>
 ```
 
-![STDOUT_LOGGING](mybatis/stdout_logging.png)
+![STDOUT_LOGGING](Mybatis/stdout_logging.png)
 
 ### 2、Log4J
 
@@ -854,7 +854,7 @@ STDOUT_LOGGING标准日志输出
 
 4. 直接测试运行刚才的查询操作
 
-   ![log4j](mybatis/log4j.png)
+   ![log4j](Mybatis/log4j.png)
 
 ## 7、分页
 
@@ -956,7 +956,7 @@ select * from user limit 3 相当于select * from user limit 0,3
 
 - 分页插件PageHelper
 
-![PageHelper](mybatis/page-helper.png)
+![PageHelper](Mybatis/page-helper.png)
 
 了解即可，用的时候查文档即可：https://pagehelper.github.io/docs/howtouse/
 

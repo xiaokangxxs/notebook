@@ -51,6 +51,9 @@
 	  maxLevel: 3,//最大的内容表级别。
       coverpage: true,
 	  onlyCover:true,
+	  plantuml: {
+		skin: 'classic',
+      },
 	  search: {
             maxAge: 86400000, // 过期时间，单位毫秒，默认一天
             noData: '小康温馨提示:未找到结果!',//搜索不到结果时显示
@@ -94,6 +97,8 @@
   <script src="Books/鸟哥的Linux私房菜（第四版）.pdf/docsify-pdf-embed.js"></script>
   <!-- or use this if you are not hosting the file yourself -->
   <script src="js/src/docsify-pdf-embed.js"></script>
+  <!-- plantuml -->
+  <script src="js/dist/docsify-plantuml.min.js"></script>
   <!-- fontawesome -->
   <script src="js/dist/docsify-fontawesome.min.js"></script>
   <!-- Flexible Alerts -->

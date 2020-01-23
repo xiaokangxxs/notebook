@@ -6,7 +6,6 @@
 >
 > :point_right:	微信公众号：小康新鲜事儿
 <div align="center" class="footWord">:cloud: <span class="typed">新版每日一句-微信公众号：小康新鲜事儿</span></div>
-
 <script>
 let $data=[		
 		"新版每日一句-微信公众号：小康新鲜事儿",	
