@@ -482,3 +482,7 @@ for i in "$@"
   ```
 
 ![自定义函数](shell-diy.gif)
+
+## **文章中涉及的脚本源码**
+
+蓝奏云： :shell: [shellExercise](https://www.lanzous.com/i8uexpa) 
