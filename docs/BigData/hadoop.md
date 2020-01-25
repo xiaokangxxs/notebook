@@ -38,7 +38,6 @@ HDFS 的 ` 文件系统命名空间 ` 的层次结构与大多数文件系统类
 由于 Hadoop 被设计运行在廉价的机器上，这意味着硬件是不可靠的，为了保证容错性，HDFS 提供了数据复制机制。HDFS 将每一个文件存储为一系列**块**，每个块由多个副本来保证容错，块的大小和复制因子可以自行配置（默认情况下，块大小是 128M，默认复制因子是 3）。
 
 <div align="center"> <img width="600px" src="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/BigData/Hadoop/hdfsdatanodes.png"/> </div>
-
 #### 2.4 数据复制的实现原理
 
 大型的 HDFS 实例在通常分布在多个机架的多台服务器上，不同机架上的两台服务器之间通过交换机进行通讯。在大多数情况下，同一机架中的服务器间的网络带宽大于不同机架中的服务器之间的带宽。因此 HDFS 采用机架感知副本放置策略，对于常见情况，当复制因子为 3 时，HDFS 的放置策略是：
@@ -103,28 +102,22 @@ HDFS 具有良好的跨平台移植性，这使得其他大数据计算框架都
 <div align="center"> <img  src="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/BigData/Hadoop/hdfs-write-1.jpg"/> </div>
 <div align="center"> <img  src="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/BigData/Hadoop/hdfs-write-2.jpg"/> </div>
 <div align="center"> <img  src="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/BigData/Hadoop/hdfs-write-3.jpg"/> </div>
-
 #### 2. HDFS读数据原理
 
 <div align="center"> <img  src="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/BigData/Hadoop/hdfs-read-1.jpg"/> </div>
-
 #### 3. HDFS故障类型和其检测方法
 
 <div align="center"> <img  src="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/BigData/Hadoop/hdfs-tolerance-1.jpg"/> </div>
 <div align="center"> <img  src="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/BigData/Hadoop/hdfs-tolerance-2.jpg"/> </div>
-
 **第二部分：读写故障的处理**
 
 <div align="center"> <img  src="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/BigData/Hadoop/hdfs-tolerance-3.jpg"/> </div>
-
 **第三部分：DataNode 故障处理**
 
 <div align="center"> <img  src="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/BigData/Hadoop/hdfs-tolerance-4.jpg"/> </div>
-
 **副本布局策略**：
 
 <div align="center"> <img  src="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/BigData/Hadoop/hdfs-tolerance-5.jpg"/> </div>
-
 
 ### 参考资料
 
@@ -151,7 +144,6 @@ MapReduce 作业通过将输入的数据集拆分为独立的块，这些块由 
 这里以词频统计为例进行说明，MapReduce 处理的流程如下：
 
 <div align="center"> <img width="600px" src="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/BigData/Hadoop/mapreduceProcess.png"/> </div>
-
 1. **input** : 读取文本文件；
 
 2. **splitting** : 将文件按照行进行拆分，此时得到的 `K1` 行数，`V1` 表示对应行的文本内容；
@@ -165,7 +157,6 @@ MapReduce 编程模型中 `splitting` 和 `shuffing` 操作都是由框架实现
 ### (3)、combiner & partitioner
 
 <div align="center"> <img width="600px" src="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/BigData/Hadoop/Detailed-Hadoop-MapReduce-Data-Flow-14.png"/> </div>
-
 
 
 #### 3.1 InputFormat & RecordReaders 
@@ -185,11 +176,9 @@ MapReduce 编程模型中 `splitting` 和 `shuffing` 操作都是由框架实现
 不使用 combiner 的情况：
 
 <div align="center"> <img  width="600px"  src="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/BigData/Hadoop/mapreduce-without-combiners.png"/> </div>
-
 使用 combiner 的情况：
 
 <div align="center"> <img width="600px"  src="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/BigData/Hadoop/mapreduce-with-combiners.png"/> </div>
-
 
 可以看到使用 combiner 的时候，需要传输到 reducer 中的数据由 12keys，降低到 10keys。降低的幅度取决于你 keys 的重复率，下文词频统计案例会演示用 combiner 降低数百倍的传输量。
 
