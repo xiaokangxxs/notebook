@@ -82,37 +82,3 @@ let $data=[
 	      cursorChar: '|' //显示的字符
 	    });
 </script>
-<script>
-	<!-- 打赏 -->
-	window.tctipConfig = {
-             //最上面的文字
-             headText: "欢迎打赏支持我 ^_^",
-             //侧边栏文本
-             siderText: "公告 & 打赏",
-             //侧边栏文本高度调整
-             siderTextTop: "-72px",
-             //侧边栏背景颜色
-             siderBgcolor: "#0074D9",
-             //整个侧边栏的高度设置
-             siderTop:"118px",
-             //底部文字
-             buttomText:"了解更多",
-             //底部文字链接
-             buttomLink:"https://github.com/haddyyang/tctip",
-	        //显示列表
-	        list:{
-	            notice: {name:"公告栏", className:"myR-on",
-	                     icon: "qr/tip.png",  
-	                     text: '2019.12.24加入右侧打赏！！！'
-	                    },
-	            alipay: {name:"支付宝", desc: "用支付宝给“小康”打赏", 
-	                     icon: "qr/alipay.png", 
-	                     qrimg: "qr/alipay.jpg"
-	                    },
-	            weixin: {name:"微信", desc: "用微信给“小康”打赏", 
-	                     icon: "qr/weixin.png",
-	                     qrimg: "qr/weixin.jpg"
-	                    }    
-	        }
-	    };
-   </script>
