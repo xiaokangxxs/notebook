@@ -9,6 +9,12 @@
 
 - :dart: <strong><font color="#0074D9">安装指南</font></strong>
     - [① jdk的安装](Linux/jdk)
+    - [② 单机伪集群环境搭建](BigData/installation/Hadoop单机环境搭建)
+    - [③ 集群环境搭建](BigData/installation/Hadoop集群环境搭建)
+    - [④ 基于Zookeeper搭建Hadoop高可用集群](BigData/installation/基于Zookeeper搭建Hadoop高可用集群)
+
+- :books: <strong><font color="#0074D9">大数据</font></strong>
+    - [:elephant: Hadoop](BigData/hadoop)
 
 - :four_leaf_clover: <strong><font color="#0074D9">开源框架</font></strong>
     - [:bird: Mybatis](Framework/mybatis)
