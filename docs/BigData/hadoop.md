@@ -124,6 +124,8 @@ HDFS 具有良好的跨平台移植性，这使得其他大数据计算框架都
 **副本布局策略**：
 
 <div align="center"> <img  src="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/BigData/Hadoop/hdfs-tolerance-5.jpg"/> </div>
+
+
 ### 参考资料
 
 1. [Apache Hadoop 2.9.2 > HDFS Architecture](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html)
