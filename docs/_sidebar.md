@@ -17,6 +17,7 @@
     - [:elephant: Hadoop](BigData/hadoop)
 
 - :four_leaf_clover: <strong><font color="#0074D9">开源框架</font></strong>
+    - [:bear: Hibernate](Framework/hibernate)
     - [:bird: Mybatis](Framework/mybatis)
 
 - :runner: <strong><font color="#0074D9">用例分析</font></strong>

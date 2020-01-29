@@ -22,6 +22,7 @@
 ### (2)、HDFS 设计原理
 
 <div align="center"> <img width="600px" src="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/BigData/Hadoop/hdfsarchitecture.png"/> </div>
+
 #### 2.1 HDFS 架构
 
 HDFS 遵循主/从架构，由单个 NameNode(NN) 和多个 DataNode(DN) 组成：
@@ -38,6 +39,7 @@ HDFS 的 ` 文件系统命名空间 ` 的层次结构与大多数文件系统类
 由于 Hadoop 被设计运行在廉价的机器上，这意味着硬件是不可靠的，为了保证容错性，HDFS 提供了数据复制机制。HDFS 将每一个文件存储为一系列**块**，每个块由多个副本来保证容错，块的大小和复制因子可以自行配置（默认情况下，块大小是 128M，默认复制因子是 3）。
 
 <div align="center"> <img width="600px" src="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/BigData/Hadoop/hdfsdatanodes.png"/> </div>
+
 #### 2.4 数据复制的实现原理
 
 大型的 HDFS 实例在通常分布在多个机架的多台服务器上，不同机架上的两台服务器之间通过交换机进行通讯。在大多数情况下，同一机架中的服务器间的网络带宽大于不同机架中的服务器之间的带宽。因此 HDFS 采用机架感知副本放置策略，对于常见情况，当复制因子为 3 时，HDFS 的放置策略是：
@@ -102,19 +104,24 @@ HDFS 具有良好的跨平台移植性，这使得其他大数据计算框架都
 <div align="center"> <img  src="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/BigData/Hadoop/hdfs-write-1.jpg"/> </div>
 <div align="center"> <img  src="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/BigData/Hadoop/hdfs-write-2.jpg"/> </div>
 <div align="center"> <img  src="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/BigData/Hadoop/hdfs-write-3.jpg"/> </div>
+
 #### 2. HDFS读数据原理
 
 <div align="center"> <img  src="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/BigData/Hadoop/hdfs-read-1.jpg"/> </div>
+
 #### 3. HDFS故障类型和其检测方法
 
 <div align="center"> <img  src="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/BigData/Hadoop/hdfs-tolerance-1.jpg"/> </div>
 <div align="center"> <img  src="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/BigData/Hadoop/hdfs-tolerance-2.jpg"/> </div>
+
 **第二部分：读写故障的处理**
 
 <div align="center"> <img  src="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/BigData/Hadoop/hdfs-tolerance-3.jpg"/> </div>
+
 **第三部分：DataNode 故障处理**
 
 <div align="center"> <img  src="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/BigData/Hadoop/hdfs-tolerance-4.jpg"/> </div>
+
 **副本布局策略**：
 
 <div align="center"> <img  src="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/BigData/Hadoop/hdfs-tolerance-5.jpg"/> </div>
