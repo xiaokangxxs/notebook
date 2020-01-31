@@ -7,7 +7,7 @@
     - [③ Linux](Linux/linux)
     - [④ Shell](Shell/shell)
 - :dart: <strong><font color="#0074D9">安装指南</font></strong>
-    - [① jdk的安装](Linux/jdk)
+    - [① Linux下jdk的安装](Linux/jdk)
     - [② 单机伪集群环境搭建](BigData/installation/Hadoop单机环境搭建)
     - [③ 集群环境搭建](BigData/installation/Hadoop集群环境搭建)
     - [④ 基于Zookeeper搭建Hadoop高可用集群](BigData/installation/基于Zookeeper搭建Hadoop高可用集群)
