@@ -1,110 +1,40 @@
-# Linux下JDK的安装
-
->**系统环境**：centos 7.6
->
->**JDK 版本**：jdk 1.8.0_191
-
-### 1.以root用户身份先创建组和用户
-
-```bash
-[root@xk1181259634]# groupadd [-g 1124] hadoopenv
-```
-
-`cat /etc/group`
-
-<div align="center"> <img width="600px" src="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/Linux/JDK/group.png"/> </div>
-
-```bash
-[root@xk1181259634]# useradd -m [-u 1124] -g hadoopenv xiaokang
-```
-
-`cat /etc/passwd`
-
-<div align="center"> <img width="600px" src="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/Linux/JDK/user-xiaokang.png"/> </div>
-
-### 2.让刚创建的普通用户xiaokang拥有超级管理员权限
-
-`ll /etc/sudoers`(该文件**默认权限440**)
-
-<div align="center"> <img width="600px" src="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/Linux/JDK/sudoers.png"/> </div>
-
-修改该文件权限并进行内容的修改
-
-```bash
-[root@xk1181259634]# chomd 640 /etc/sudoers
-```
-
-`ll /etc/sudoers`
-
-<div align="center"> <img width="600px" src="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/Linux/JDK/sudoers-1.png"/> </div>
-
-```bash
-[root@xk1181259634]# vim /etc/sudoers
-```
-
-`xiaokang        ALL=(ALL)       NOPASSWD:ALL`
-
-<div align="center"> <img width="600px" src="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/Linux/JDK/sudoers-xiaokang.png"/> </div>
-
-最后将该文件权限改回默认
-
-```bash
-[root@xk1181259634]# chomd 440 /etc/sudoers
-```
-
-<div align="center"> <img width="600px" src="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/Linux/JDK/default.png"/> </div>
-
-### 3. 下载并解压
-
-以下所有操作都以xiaokang用户的身份执行，在[官网](https://www.oracle.com/technetwork/java/javase/downloads/index.html) 下载所需版本的 JDK，这里我下载的版本为jdk 1.8.0_191 ,下载后进行解压(先创建moudle文件夹)：
-
-```bash
-[root@xk1181259634]# su xiaokang
-```
-
-```bash
-[xiaokang@xk1181259634 ~]$ sudo mkdir -p /opt/moudle
-```
-
-```shell
-[xiaokang@xk1181259634 ~]$ sudo tar -zxvf jdk-8u191-linux-x64.tar.gz -C /opt/moudle/
-```
-
-### 4. 设置环境变量
-
-```shell
-[xiaokang@xk1181259634 ~]$ sudo vim /etc/profile
-```
-
-输入G定位到文件最后，添加如下配置：
-
-```shell
-export JAVA_HOME=/opt/moudle/jdk1.8.0_191
-export JRE_HOME=${JAVA_HOME}/jre
-export CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib
-export PATH=${JAVA_HOME}/bin:$PATH
-```
-
-执行 `source` 命令，使得配置立即生效：
-
-```shell
-[xiaokang@xk1181259634 ~]$ source /etc/profile
-```
-
-### 5. 检查是否安装成功
-
-```shell
-[xiaokang@xk1181259634 ~]$ java -version
-[xiaokang@xk1181259634 ~]$ which java
-```
-
-显示出对应的版本信息和命令位置则代表安装成功。
-
-```shell
-java version "1.8.0_191"
-Java(TM) SE Runtime Environment (build 1.8.0_191-b12)
-Java HotSpot(TM) 64-Bit Server VM (build 25.191-b12, mixed mode)
-
-/opt/moudle/jdk1.8.0_191/bin/java
-```
-
+<div class="output_wrapper" id="output_wrapper_id" style="font-size: 16px; color: rgb(62, 62, 62); line-height: 1.6; word-spacing: 0px; letter-spacing: 0px; font-family: 'Helvetica Neue', Helvetica, 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif;"><h1 id="hlinuxjdk" style="color: inherit; line-height: inherit; padding: 0px; margin: 1.5em 0px; font-weight: bold; font-size: 1.6em;"><span style="font-size: inherit; color: inherit; line-height: inherit; margin: 0px; padding: 0px;">Linux下JDK的安装</span></h1>
+<blockquote style="line-height: inherit; display: block; padding: 15px 15px 15px 1rem; font-size: 0.9em; margin: 1em 0px; color: rgb(129, 145, 152); border-left: 6px solid rgb(220, 230, 240); background: rgb(242, 247, 251) none repeat scroll 0% 0%; overflow: auto; overflow-wrap: normal; word-break: normal;">
+  <p style="font-size: inherit; color: inherit; line-height: inherit; padding: 0px; margin: 0px;"><strong style="font-size: inherit; line-height: inherit; margin: 0px; padding: 0px; font-weight: bold; color: rgb(0, 116, 217);">系统环境</strong>：centos 7.6</p>
+  <p style="font-size: inherit; color: inherit; line-height: inherit; padding: 0px; margin: 0px;"><strong style="font-size: inherit; line-height: inherit; margin: 0px; padding: 0px; font-weight: bold; color: rgb(0, 116, 217);">JDK 版本</strong>：jdk 1.8.0_191</p>
+</blockquote>
+<h3 id="h1root" style="color: inherit; line-height: inherit; padding: 0px; margin: 1.5em 0px; font-weight: bold; border-bottom: 2px solid rgb(0, 116, 217); margin-bottom: 50px; font-size: 1em;"><span style="font-size: inherit; line-height: inherit; margin: 0px; display: inline-block; background: rgb(0, 116, 217) none repeat scroll 0% 0%; color: rgb(255, 255, 255); padding: 10px 16px; border-radius: 5px; box-shadow: rgb(0, 116, 217) 5px 5px 10px;">1.以root用户身份先创建组和用户</span></h3>
+<pre style="font-size: inherit; color: inherit; line-height: inherit; margin: 0px; padding: 0px;"><code class="bash language-bash hljs" style="overflow-wrap: break-word; margin: 0px 2px; line-height: 18px; font-size: 14px; font-weight: normal; word-spacing: 0px; letter-spacing: 0px; font-family: Consolas, Inconsolata, Courier, monospace; border-radius: 0px; overflow-x: auto; padding: 0.5em; background: rgb(40, 42, 54) none repeat scroll 0% 0%; color: rgb(248, 248, 242); white-space: pre !important; word-wrap: normal !important; word-break: normal !important; overflow: auto !important; display: -webkit-box !important;">[root@xk1181259634]<span class="hljs-comment" style="font-size: inherit; line-height: inherit; margin: 0px; padding: 0px; color: rgb(98, 114, 164); word-wrap: inherit !important; word-break: inherit !important;">#&nbsp;groupadd&nbsp;[-g&nbsp;1124]&nbsp;hadoopenv</span><br></code></pre>
+<p style="font-size: inherit; color: inherit; line-height: inherit; padding: 0px; margin: 1.5em 0px;"><code style="font-size: inherit; line-height: inherit; overflow-wrap: break-word; padding: 2px 4px; border-radius: 4px; margin: 0px 2px; color: rgb(233, 105, 0); background: rgb(248, 248, 248) none repeat scroll 0% 0%;">cat /etc/group</code></p>
+<p style="font-size: inherit; color: inherit; line-height: inherit; padding: 0px; margin: 1.5em 0px;"><img src="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/Linux/JDK/group.png" width="600px" style="font-size: inherit; color: inherit; line-height: inherit; padding: 0px; display: block; margin: 0px auto; max-width: 100%;"></p>
+<pre style="font-size: inherit; color: inherit; line-height: inherit; margin: 0px; padding: 0px;"><code class="bash language-bash hljs" style="overflow-wrap: break-word; margin: 0px 2px; line-height: 18px; font-size: 14px; font-weight: normal; word-spacing: 0px; letter-spacing: 0px; font-family: Consolas, Inconsolata, Courier, monospace; border-radius: 0px; overflow-x: auto; padding: 0.5em; background: rgb(40, 42, 54) none repeat scroll 0% 0%; color: rgb(248, 248, 242); white-space: pre !important; word-wrap: normal !important; word-break: normal !important; overflow: auto !important; display: -webkit-box !important;">[root@xk1181259634]<span class="hljs-comment" style="font-size: inherit; line-height: inherit; margin: 0px; padding: 0px; color: rgb(98, 114, 164); word-wrap: inherit !important; word-break: inherit !important;">#&nbsp;useradd&nbsp;-m&nbsp;[-u&nbsp;1124]&nbsp;-g&nbsp;hadoopenv&nbsp;xiaokang</span><br></code></pre>
+<p style="font-size: inherit; color: inherit; line-height: inherit; padding: 0px; margin: 1.5em 0px;"><code style="font-size: inherit; line-height: inherit; overflow-wrap: break-word; padding: 2px 4px; border-radius: 4px; margin: 0px 2px; color: rgb(233, 105, 0); background: rgb(248, 248, 248) none repeat scroll 0% 0%;">cat /etc/passwd</code></p>
+<p style="font-size: inherit; color: inherit; line-height: inherit; padding: 0px; margin: 1.5em 0px;"><img src="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/Linux/JDK/user-xiaokang.png" width="600px" style="font-size: inherit; color: inherit; line-height: inherit; padding: 0px; display: block; margin: 0px auto; max-width: 100%;"></p>
+<h3 id="h2xiaokang" style="color: inherit; line-height: inherit; padding: 0px; margin: 1.5em 0px; font-weight: bold; border-bottom: 2px solid rgb(0, 116, 217); margin-bottom: 50px; font-size: 1em;"><span style="font-size: inherit; line-height: inherit; margin: 0px; display: inline-block; background: rgb(0, 116, 217) none repeat scroll 0% 0%; color: rgb(255, 255, 255); padding: 10px 16px; border-radius: 5px; box-shadow: rgb(0, 116, 217) 5px 5px 10px;">2.让刚创建的普通用户xiaokang拥有超级管理员权限</span></h3>
+<p style="font-size: inherit; color: inherit; line-height: inherit; padding: 0px; margin: 1.5em 0px;"><code style="font-size: inherit; line-height: inherit; overflow-wrap: break-word; padding: 2px 4px; border-radius: 4px; margin: 0px 2px; color: rgb(233, 105, 0); background: rgb(248, 248, 248) none repeat scroll 0% 0%;">ll /etc/sudoers</code>(该文件<strong style="font-size: inherit; line-height: inherit; margin: 0px; padding: 0px; font-weight: bold; color: rgb(0, 116, 217);">默认权限440</strong>)</p>
+<p style="font-size: inherit; color: inherit; line-height: inherit; padding: 0px; margin: 1.5em 0px;"><img src="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/Linux/JDK/sudoers.png" width="600px" style="font-size: inherit; color: inherit; line-height: inherit; padding: 0px; display: block; margin: 0px auto; max-width: 100%;"></p>
+<p style="font-size: inherit; color: inherit; line-height: inherit; padding: 0px; margin: 1.5em 0px;">修改该文件权限并进行内容的修改</p>
+<pre style="font-size: inherit; color: inherit; line-height: inherit; margin: 0px; padding: 0px;"><code class="bash language-bash hljs" style="overflow-wrap: break-word; margin: 0px 2px; line-height: 18px; font-size: 14px; font-weight: normal; word-spacing: 0px; letter-spacing: 0px; font-family: Consolas, Inconsolata, Courier, monospace; border-radius: 0px; overflow-x: auto; padding: 0.5em; background: rgb(40, 42, 54) none repeat scroll 0% 0%; color: rgb(248, 248, 242); white-space: pre !important; word-wrap: normal !important; word-break: normal !important; overflow: auto !important; display: -webkit-box !important;">[root@xk1181259634]<span class="hljs-comment" style="font-size: inherit; line-height: inherit; margin: 0px; padding: 0px; color: rgb(98, 114, 164); word-wrap: inherit !important; word-break: inherit !important;">#&nbsp;chomd&nbsp;640&nbsp;/etc/sudoers</span><br></code></pre>
+<p style="font-size: inherit; color: inherit; line-height: inherit; padding: 0px; margin: 1.5em 0px;"><code style="font-size: inherit; line-height: inherit; overflow-wrap: break-word; padding: 2px 4px; border-radius: 4px; margin: 0px 2px; color: rgb(233, 105, 0); background: rgb(248, 248, 248) none repeat scroll 0% 0%;">ll /etc/sudoers</code></p>
+<p style="font-size: inherit; color: inherit; line-height: inherit; padding: 0px; margin: 1.5em 0px;"><img src="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/Linux/JDK/sudoers-1.png" width="600px" style="font-size: inherit; color: inherit; line-height: inherit; padding: 0px; display: block; margin: 0px auto; max-width: 100%;"></p>
+<pre style="font-size: inherit; color: inherit; line-height: inherit; margin: 0px; padding: 0px;"><code class="bash language-bash hljs" style="overflow-wrap: break-word; margin: 0px 2px; line-height: 18px; font-size: 14px; font-weight: normal; word-spacing: 0px; letter-spacing: 0px; font-family: Consolas, Inconsolata, Courier, monospace; border-radius: 0px; overflow-x: auto; padding: 0.5em; background: rgb(40, 42, 54) none repeat scroll 0% 0%; color: rgb(248, 248, 242); white-space: pre !important; word-wrap: normal !important; word-break: normal !important; overflow: auto !important; display: -webkit-box !important;">[root@xk1181259634]<span class="hljs-comment" style="font-size: inherit; line-height: inherit; margin: 0px; padding: 0px; color: rgb(98, 114, 164); word-wrap: inherit !important; word-break: inherit !important;">#&nbsp;vim&nbsp;/etc/sudoers</span><br></code></pre>
+<p style="font-size: inherit; color: inherit; line-height: inherit; padding: 0px; margin: 1.5em 0px;"><code style="font-size: inherit; line-height: inherit; overflow-wrap: break-word; padding: 2px 4px; border-radius: 4px; margin: 0px 2px; color: rgb(233, 105, 0); background: rgb(248, 248, 248) none repeat scroll 0% 0%;">xiaokang        ALL=(ALL)       NOPASSWD:ALL</code></p>
+<p style="font-size: inherit; color: inherit; line-height: inherit; padding: 0px; margin: 1.5em 0px;"><img src="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/Linux/JDK/sudoers-xiaokang.png" width="600px" style="font-size: inherit; color: inherit; line-height: inherit; padding: 0px; display: block; margin: 0px auto; max-width: 100%;"></p>
+<p style="font-size: inherit; color: inherit; line-height: inherit; padding: 0px; margin: 1.5em 0px;">最后将该文件权限改回默认</p>
+<pre style="font-size: inherit; color: inherit; line-height: inherit; margin: 0px; padding: 0px;"><code class="bash language-bash hljs" style="overflow-wrap: break-word; margin: 0px 2px; line-height: 18px; font-size: 14px; font-weight: normal; word-spacing: 0px; letter-spacing: 0px; font-family: Consolas, Inconsolata, Courier, monospace; border-radius: 0px; overflow-x: auto; padding: 0.5em; background: rgb(40, 42, 54) none repeat scroll 0% 0%; color: rgb(248, 248, 242); white-space: pre !important; word-wrap: normal !important; word-break: normal !important; overflow: auto !important; display: -webkit-box !important;">[root@xk1181259634]<span class="hljs-comment" style="font-size: inherit; line-height: inherit; margin: 0px; padding: 0px; color: rgb(98, 114, 164); word-wrap: inherit !important; word-break: inherit !important;">#&nbsp;chomd&nbsp;440&nbsp;/etc/sudoers</span><br></code></pre>
+<p style="font-size: inherit; color: inherit; line-height: inherit; padding: 0px; margin: 1.5em 0px;"><img src="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/Linux/JDK/default.png" width="600px" style="font-size: inherit; color: inherit; line-height: inherit; padding: 0px; display: block; margin: 0px auto; max-width: 100%;"></p>
+<h3 id="h3" style="color: inherit; line-height: inherit; padding: 0px; margin: 1.5em 0px; font-weight: bold; border-bottom: 2px solid rgb(0, 116, 217); margin-bottom: 50px; font-size: 1em;"><span style="font-size: inherit; line-height: inherit; margin: 0px; display: inline-block; background: rgb(0, 116, 217) none repeat scroll 0% 0%; color: rgb(255, 255, 255); padding: 10px 16px; border-radius: 5px; box-shadow: rgb(0, 116, 217) 5px 5px 10px;">3. 下载并解压</span></h3>
+<p style="font-size: inherit; color: inherit; line-height: inherit; padding: 0px; margin: 1.5em 0px;">以下所有操作都以xiaokang用户的身份执行，在<a href="https://www.oracle.com/technetwork/java/javase/downloads/index.html" style="font-size: inherit; line-height: inherit; margin: 0px; padding: 0px; text-decoration: none; color: rgb(30, 107, 184); overflow-wrap: break-word;">官网</a> 下载所需版本的 JDK，这里我下载的版本为jdk 1.8.0_191 ,下载后进行解压(先创建moudle文件夹)：</p>
+<pre style="font-size: inherit; color: inherit; line-height: inherit; margin: 0px; padding: 0px;"><code class="bash language-bash hljs" style="overflow-wrap: break-word; margin: 0px 2px; line-height: 18px; font-size: 14px; font-weight: normal; word-spacing: 0px; letter-spacing: 0px; font-family: Consolas, Inconsolata, Courier, monospace; border-radius: 0px; overflow-x: auto; padding: 0.5em; background: rgb(40, 42, 54) none repeat scroll 0% 0%; color: rgb(248, 248, 242); white-space: pre !important; word-wrap: normal !important; word-break: normal !important; overflow: auto !important; display: -webkit-box !important;">[root@xk1181259634]<span class="hljs-comment" style="font-size: inherit; line-height: inherit; margin: 0px; padding: 0px; color: rgb(98, 114, 164); word-wrap: inherit !important; word-break: inherit !important;">#&nbsp;su&nbsp;xiaokang</span><br></code></pre>
+<pre style="font-size: inherit; color: inherit; line-height: inherit; margin: 0px; padding: 0px;"><code class="bash language-bash hljs" style="overflow-wrap: break-word; margin: 0px 2px; line-height: 18px; font-size: 14px; font-weight: normal; word-spacing: 0px; letter-spacing: 0px; font-family: Consolas, Inconsolata, Courier, monospace; border-radius: 0px; overflow-x: auto; padding: 0.5em; background: rgb(40, 42, 54) none repeat scroll 0% 0%; color: rgb(248, 248, 242); white-space: pre !important; word-wrap: normal !important; word-break: normal !important; overflow: auto !important; display: -webkit-box !important;">[xiaokang@xk1181259634&nbsp;~]$&nbsp;sudo&nbsp;mkdir&nbsp;-p&nbsp;/opt/moudle<br></code></pre>
+<pre style="font-size: inherit; color: inherit; line-height: inherit; margin: 0px; padding: 0px;"><code class="shell language-shell hljs" style="overflow-wrap: break-word; margin: 0px 2px; line-height: 18px; font-size: 14px; font-weight: normal; word-spacing: 0px; letter-spacing: 0px; font-family: Consolas, Inconsolata, Courier, monospace; border-radius: 0px; overflow-x: auto; padding: 0.5em; background: rgb(40, 42, 54) none repeat scroll 0% 0%; color: rgb(248, 248, 242); white-space: pre !important; word-wrap: normal !important; word-break: normal !important; overflow: auto !important; display: -webkit-box !important;">[xiaokang@xk1181259634&nbsp;~]$&nbsp;sudo&nbsp;tar&nbsp;-zxvf&nbsp;jdk-8u191-linux-x64.tar.gz&nbsp;-C&nbsp;/opt/moudle/<br></code></pre>
+<h3 id="h4" style="color: inherit; line-height: inherit; padding: 0px; margin: 1.5em 0px; font-weight: bold; border-bottom: 2px solid rgb(0, 116, 217); margin-bottom: 50px; font-size: 1em;"><span style="font-size: inherit; line-height: inherit; margin: 0px; display: inline-block; background: rgb(0, 116, 217) none repeat scroll 0% 0%; color: rgb(255, 255, 255); padding: 10px 16px; border-radius: 5px; box-shadow: rgb(0, 116, 217) 5px 5px 10px;">4. 设置环境变量</span></h3>
+<pre style="font-size: inherit; color: inherit; line-height: inherit; margin: 0px; padding: 0px;"><code class="shell language-shell hljs" style="overflow-wrap: break-word; margin: 0px 2px; line-height: 18px; font-size: 14px; font-weight: normal; word-spacing: 0px; letter-spacing: 0px; font-family: Consolas, Inconsolata, Courier, monospace; border-radius: 0px; overflow-x: auto; padding: 0.5em; background: rgb(40, 42, 54) none repeat scroll 0% 0%; color: rgb(248, 248, 242); white-space: pre !important; word-wrap: normal !important; word-break: normal !important; overflow: auto !important; display: -webkit-box !important;">[xiaokang@xk1181259634&nbsp;~]$&nbsp;sudo&nbsp;vim&nbsp;/etc/profile<br></code></pre>
+<p style="font-size: inherit; color: inherit; line-height: inherit; padding: 0px; margin: 1.5em 0px;">输入G定位到文件最后，添加如下配置：</p>
+<pre style="font-size: inherit; color: inherit; line-height: inherit; margin: 0px; padding: 0px;"><code class="shell language-shell hljs" style="overflow-wrap: break-word; margin: 0px 2px; line-height: 18px; font-size: 14px; font-weight: normal; word-spacing: 0px; letter-spacing: 0px; font-family: Consolas, Inconsolata, Courier, monospace; border-radius: 0px; overflow-x: auto; padding: 0.5em; background: rgb(40, 42, 54) none repeat scroll 0% 0%; color: rgb(248, 248, 242); white-space: pre !important; word-wrap: normal !important; word-break: normal !important; overflow: auto !important; display: -webkit-box !important;">export&nbsp;JAVA_HOME=/opt/moudle/jdk1.8.0_191<br>export&nbsp;JRE_HOME=${JAVA_HOME}/jre<br>export&nbsp;CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib<br>export&nbsp;PATH=${JAVA_HOME}/bin:$PATH<br></code></pre>
+<p style="font-size: inherit; color: inherit; line-height: inherit; padding: 0px; margin: 1.5em 0px;">执行 <code style="font-size: inherit; line-height: inherit; overflow-wrap: break-word; padding: 2px 4px; border-radius: 4px; margin: 0px 2px; color: rgb(233, 105, 0); background: rgb(248, 248, 248) none repeat scroll 0% 0%;">source</code> 命令，使得配置立即生效：</p>
+<pre style="font-size: inherit; color: inherit; line-height: inherit; margin: 0px; padding: 0px;"><code class="shell language-shell hljs" style="overflow-wrap: break-word; margin: 0px 2px; line-height: 18px; font-size: 14px; font-weight: normal; word-spacing: 0px; letter-spacing: 0px; font-family: Consolas, Inconsolata, Courier, monospace; border-radius: 0px; overflow-x: auto; padding: 0.5em; background: rgb(40, 42, 54) none repeat scroll 0% 0%; color: rgb(248, 248, 242); white-space: pre !important; word-wrap: normal !important; word-break: normal !important; overflow: auto !important; display: -webkit-box !important;">[xiaokang@xk1181259634&nbsp;~]$&nbsp;source&nbsp;/etc/profile<br></code></pre>
+<h3 id="h5" style="color: inherit; line-height: inherit; padding: 0px; margin: 1.5em 0px; font-weight: bold; border-bottom: 2px solid rgb(0, 116, 217); margin-bottom: 50px; font-size: 1em;"><span style="font-size: inherit; line-height: inherit; margin: 0px; display: inline-block; background: rgb(0, 116, 217) none repeat scroll 0% 0%; color: rgb(255, 255, 255); padding: 10px 16px; border-radius: 5px; box-shadow: rgb(0, 116, 217) 5px 5px 10px;">5. 检查是否安装成功</span></h3>
+<pre style="font-size: inherit; color: inherit; line-height: inherit; margin: 0px; padding: 0px;"><code class="shell language-shell hljs" style="overflow-wrap: break-word; margin: 0px 2px; line-height: 18px; font-size: 14px; font-weight: normal; word-spacing: 0px; letter-spacing: 0px; font-family: Consolas, Inconsolata, Courier, monospace; border-radius: 0px; overflow-x: auto; padding: 0.5em; background: rgb(40, 42, 54) none repeat scroll 0% 0%; color: rgb(248, 248, 242); white-space: pre !important; word-wrap: normal !important; word-break: normal !important; overflow: auto !important; display: -webkit-box !important;">[xiaokang@xk1181259634&nbsp;~]$&nbsp;java&nbsp;-version<br>[xiaokang@xk1181259634&nbsp;~]$&nbsp;which&nbsp;java<br></code></pre>
+<p style="font-size: inherit; color: inherit; line-height: inherit; padding: 0px; margin: 1.5em 0px;">显示出对应的版本信息和命令位置则代表安装成功。</p>
+<pre style="font-size: inherit; color: inherit; line-height: inherit; margin: 0px; padding: 0px;"><code class="shell language-shell hljs" style="overflow-wrap: break-word; margin: 0px 2px; line-height: 18px; font-size: 14px; font-weight: normal; word-spacing: 0px; letter-spacing: 0px; font-family: Consolas, Inconsolata, Courier, monospace; border-radius: 0px; overflow-x: auto; padding: 0.5em; background: rgb(40, 42, 54) none repeat scroll 0% 0%; color: rgb(248, 248, 242); white-space: pre !important; word-wrap: normal !important; word-break: normal !important; overflow: auto !important; display: -webkit-box !important;">java&nbsp;version&nbsp;"1.8.0_191"<br>Java(TM)&nbsp;SE&nbsp;Runtime&nbsp;Environment&nbsp;(build&nbsp;1.8.0_191-b12)<br>Java&nbsp;HotSpot(TM)&nbsp;64-Bit&nbsp;Server&nbsp;VM&nbsp;(build&nbsp;25.191-b12,&nbsp;mixed&nbsp;mode)<br><br>/opt/moudle/jdk1.8.0_191/bin/java<br></code></pre></div>
