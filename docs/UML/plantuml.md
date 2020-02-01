@@ -44,6 +44,34 @@ __ private field __
 @enduml
 ```
 
+```plantuml
+@startuml
+rectangle User
+User -- (user_id)
+User -- (用户昵称)
+User -- (用户密码)
+User -- (出生日期)
+User -- (身份证号)
+User -- (省)
+User -- (市)
+User -- (详细地址)
+User -- (真实姓名)
+User -- (手机号)
+User -- (性别)
+User -- (邮箱)
+User -- (密保问题)
+User -- (密保答案)
+User -- (注册时间)
+User -- (头像)
+User -- (积分)
+User -- (状态)
+User -- (激活码)
+User -- (激活状态)
+User -- (用户级别)
+User -- (上次登录时间)
+@enduml
+```
+
 ### 2.管理员实体类
 
 ```plantuml
@@ -73,6 +101,21 @@ __ private field __
 @enduml
 ```
 
+```plantuml
+@startuml
+rectangle Manager
+Manager -- (manager_id)
+Manager -- (管理员姓名)
+Manager -- (管理员密码)
+Manager -- (管理员手机号)
+Manager -- (管理员性别)
+Manager -- (出生日期)
+Manager -- (管理员头像)
+Manager -- (管理员身份证号)
+Manager -- (管理员住址)
+@enduml
+```
+
 ### 3.角色实体类
 
 ```plantuml
@@ -94,6 +137,16 @@ __ private field __
   ...
 }
 
+@enduml
+```
+
+```plantuml
+@startuml
+rectangle Role
+Role -- (role_id)
+Role -- (角色名称)
+Role -- (角色关键字)
+Role -- (角色描述)
 @enduml
 ```
 
@@ -124,6 +177,19 @@ __ private field __
 @enduml
 ```
 
+```plantuml
+@startuml
+rectangle Function
+Function -- (id)
+Function -- (权限名称)
+Function -- (权限关键字)
+Function -- (权限描述)
+Function -- (权限url)
+Function -- (权限优先级)
+Function -- (是否生成菜单)
+@enduml
+```
+
 ### 5.收入账单实体类
 
 ```plantuml
@@ -149,6 +215,17 @@ __ private field __
 @enduml
 ```
 
+```plantuml
+@startuml
+rectangle InAccount
+InAccount -- (inaccount_id)
+InAccount -- (收入日期时间)
+InAccount -- (收入金额)
+InAccount -- (收入账单创建时间)
+InAccount -- (收入账单备注)
+@enduml
+```
+
 ### 6.收入类型实体类
 
 ```plantuml
@@ -170,6 +247,16 @@ __ private field __
   ...
 }
 
+@enduml
+```
+
+```plantuml
+@startuml
+rectangle InAccountType
+InAccountType -- (inaccounttype_id)
+InAccountType -- (收入类型名称)
+InAccountType -- (收入类型创建时间)
+InAccountType -- (收入类型备注)
 @enduml
 ```
 
@@ -198,6 +285,17 @@ __ private field __
 @enduml
 ```
 
+```plantuml
+@startuml
+rectangle OutAccount
+OutAccount -- (outaccount_id)
+OutAccount -- (支出日期时间)
+OutAccount -- (支出金额)
+OutAccount -- (支出账单创建时间)
+OutAccount -- (支出账单备注)
+@enduml
+```
+
 ### 8.支出类型实体类
 
 ```plantuml
@@ -219,6 +317,16 @@ __ private field __
   ...
 }
 
+@enduml
+```
+
+```plantuml
+@startuml
+rectangle OutAccountType
+OutAccountType -- (outaccounttype_id)
+OutAccountType -- (支出类型名称)
+OutAccountType -- (支出类型创建时间)
+OutAccountType -- (支出类型备注)
 @enduml
 ```
 
@@ -245,6 +353,15 @@ __ private field __
 @enduml
 ```
 
+```plantuml
+@startuml
+rectangle Region
+Region -- (region_id)
+Region -- (交流大区名称)
+Region -- (交流大区备注)
+@enduml
+```
+
 ### 10.主题帖实体类
 
 ```plantuml
@@ -261,7 +378,7 @@ __ private field __
  -is_end : Character // 是否结贴
  -look_count : Integer // 浏览数量
  -topic_zan : Integer //点赞数
- -topic_bad : Integer //不赞数
+ -topic_bad : Integer //鄙视数
  -del : Character // 是否删除 1:删除 0：未删除
 .. Some Getter ..
   + getTopic_id()
@@ -276,6 +393,23 @@ __ private field __
 @enduml
 ```
 
+```plantuml
+@startuml
+rectangle Topic
+Topic -- (topic_id)
+Topic -- (主题帖标题)
+Topic -- (主题帖内容)
+Topic -- (主题帖发布日期)
+Topic -- (是否置顶)
+Topic -- (是否加精)
+Topic -- (是否结帖)
+Topic -- (浏览数量)
+Topic -- (点赞数)
+Topic -- (鄙视数)
+Topic -- (是否删除)
+@enduml
+```
+
 ### 11.回复贴实体类
 
 ```plantuml
@@ -287,7 +421,7 @@ __ private field __
  -reply_content : String // 回复内容
  -reply_datetime : Date // 回复日期
  -is_top : Character // 是否置顶
- -zan : Integer // 赞数量
+ -zan : Integer // 点赞数
  -bad : Integer // 鄙视数
  -status : Integer // 是否被查看
 .. Some Getter ..
@@ -300,6 +434,19 @@ __ private field __
   ...
 }
 
+@enduml
+```
+
+```plantuml
+@startuml
+rectangle Reply
+Reply -- (reply_id)
+Reply -- (回复内容)
+Reply -- (回复日期)
+Reply -- (是否置顶)
+Reply -- (点赞数)
+Reply -- (鄙视数)
+Reply -- (是否被查看)
 @enduml
 ```
 
@@ -332,6 +479,21 @@ __ private field __
 @enduml
 ```
 
+```plantuml
+@startuml
+rectangle Invest
+Invest -- (invest_id)
+Invest -- (投资理财名称)
+Invest -- (时间)
+Invest -- (投资周期)
+Invest -- (投资目标)
+Invest -- (创建时间)
+Invest -- (利率)
+Invest -- (投资金额)
+Invest -- (投资理财备注)
+@enduml
+```
+
 ### 13.借款还贷实体类
 
 ```plantuml
@@ -359,6 +521,22 @@ __ private field __
   ...
 }
 
+@enduml
+```
+
+```plantuml
+@startuml
+rectangle Loan
+Loan -- (loan_id)
+Loan -- (投资理财编号)
+Loan -- (借款还贷名称)
+Loan -- (借款还贷日期)
+Loan -- (周期（按年）)
+Loan -- (利息率)
+Loan -- (借款金额)
+Loan -- (借款来源)
+Loan -- (借款还贷备注)
+Loan -- (创建时间)
 @enduml
 ```
 
