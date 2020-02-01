@@ -628,3 +628,34 @@ stop
 
 @enduml
 ```
+
+```plantuml
+@startuml
+skinparam rectangle {
+	roundCorner<<集群规划-xiaokang>> 25
+}
+
+rectangle "老大:hadoop01,小弟:hadoop02、hadoop03" <<集群规划-xiaokang>> {
+node hadoop01 #red [
+NameNode
+DataNode
+----
+ResourceManager
+NodeManager
+] 
+node hadoop02 #CCCCFF [
+DataNode
+----
+NodeManager
+]
+node hadoop03 #CCCCFF [
+DataNode
+----
+NodeManager
+]
+hadoop01 -- hadoop02
+hadoop01 -- hadoop03
+}
+@enduml
+```
+
