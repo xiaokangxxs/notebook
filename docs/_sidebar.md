@@ -8,10 +8,12 @@
     - [④ Shell](Shell/shell)
 - :dart: <strong><font color="#0074D9">安装指南</font></strong>
     - [① Linux下jdk的安装](Linux/jdk)
-    - [② Hadoop单机伪集群环境搭建](BigData/installation/Hadoop单机环境搭建)
-    - [③ Hadoop集群环境搭建](BigData/installation/Hadoop集群环境搭建)
-    - [④ Zookeeper单机环境和集群环境搭建](BigData/installation/Zookeeper单机环境和集群环境搭建)
-    - [⑤ 基于Zookeeper搭建Hadoop高可用集群](BigData/installation/基于Zookeeper搭建Hadoop高可用集群)
+    - [② Linux下mysql8的安装](SQL/installation/CentOS7.x安装mysql8.0.19)
+    - [③ Hadoop单机伪集群环境搭建](BigData/installation/Hadoop单机环境搭建)
+    - [④ Hadoop集群环境搭建](BigData/installation/Hadoop集群环境搭建)
+    - [⑤ Zookeeper单机环境和集群环境搭建](BigData/installation/Zookeeper单机环境和集群环境搭建)
+    - [⑥ 基于Zookeeper搭建Hadoop高可用集群](BigData/installation/基于Zookeeper搭建Hadoop高可用集群)
+    - [:dolphin: CentOS7.x完全卸载mysql](SQL/installation/CentOS7.x完全卸载mysql)
 - :books: <strong><font color="#0074D9">大数据</font></strong>
     - [:elephant: Hadoop](BigData/hadoop)
 - :four_leaf_clover: <strong><font color="#0074D9">开源框架</font></strong>
