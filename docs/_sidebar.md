@@ -35,3 +35,4 @@
     - [Hadoop权威指南（第四版）](Books/hadoop01)
     - [Hadoop实战-陆嘉恒(高清完整中文版)](Books/hadoop02)
     - [HBase实战](Books/hbase)
+    - [GoogleFileSystem论文](Books/gfs)

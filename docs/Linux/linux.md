@@ -434,6 +434,40 @@ grep [-nviwlr] 搜索的内容 要查找的路径
 | ^a   | 行首，搜寻以 **a** 开头的行  |
 | ke$  | 行尾，搜寻以 **ke** 结束的行 |
 
+```shell
+[xiaokang@hadoop01 xiaokang]$ cat *.log *.txt
+hello 微信公众号：小康新鲜事儿
+xiaokang.log
+
+hello 微信公众号：小康新鲜事儿
+xiaokang1.txt
+
+hello 微信公众号：小康新鲜事儿
+xiaokang.txt
+
+微信公众号：小康新鲜事儿
+xiaokangxxs.txt
+[xiaokang@hadoop01 xiaokang]$ grep -irl HELLO .
+./xiaokang.txt
+./xiaokang1.txt
+./xiaokang.log
+[xiaokang@hadoop01 xiaokang]$ grep -irl --include=*.log  HELLO .
+./xiaokang.log
+[xiaokang@hadoop01 xiaokang]$ grep -irl --include=*.txt  HELLO .
+./xiaokang.txt
+./xiaokang1.txt
+[xiaokang@hadoop01 xiaokang]$ grep -i HELLO .
+grep: .: 是一个目录
+[xiaokang@hadoop01 xiaokang]$ grep -ir HELLO .
+./xiaokang.txt:hello 微信公众号：小康新鲜事儿
+./xiaokang1.txt:hello 微信公众号：小康新鲜事儿
+./xiaokang.log:hello 微信公众号：小康新鲜事儿
+[xiaokang@hadoop01 xiaokang]$ grep -irl HELLO .
+./xiaokang.txt
+./xiaokang1.txt
+./xiaokang.log
+```
+
 ### 5.5 `tail`
 
 * tail 命令可用于查看文件的内容，有一个常用的参数 -f 常用于查阅正在改变的日志文件。 
@@ -1052,7 +1086,151 @@ date --help
 
 >* 要退出 `top` 可以直接输入 `q`
 
-# 六、其它命令
+# 六、网络&服务&进程相关
+
+## 01. 网络
+
+- `ping` 一般用于检测当前计算机到目标计算机之间的网络 **是否通畅**，**数值越大，速度越慢**
+
+```bash
+# 检测到目标主机是否连接正常
+[root@xk1181259634]# ping IP地址
+
+# 检测本地网卡工作正常
+[root@xk1181259634]# ping 127.0.0.1
+```
+
+- `ifconfig` 可以查看／配置计算机当前的网卡配置信息 
+
+```bash
+# 查看网卡配置信息
+[root@xk1181259634]# ifconfig [ens33]
+
+# 查看网卡对应的 IP 地址
+[root@xk1181259634]# ifconfig | grep inet
+```
+
+网卡配置信息**文件**：`/etc/sysconfig/network-scripts/ifcfg-ens33`
+
+>SSH 客户端是一种使用 Secure Shell（SSH） 协议连接到远程计算机的软件程序
+SSH 是目前较可靠，专为远程登录会话和其他网络服务 提供安全性的协议
+	利用 SSH 协议 可以有效防止远程管理过程中的信息泄露
+	通过 SSH 协议 可以对所有传输的数据进行加密，也能够防止 DNS 欺骗和 IP 欺骗
+SSH 的另一项优点是传输的数据可以是经过压缩的，所以可以加快传输的速度
+
+```bash
+ssh [-p port] user@remote
+```
+
+1. `user` 是在远程机器上的用户名，如果不指定的话默认为当前用户
+
+2. `remote` 是远程机器的地址，可以是 **IP**／**域名**，或者是 **后面会提到的别名**
+
+3. `port` 是 **SSH Server 监听的端口**，如果不指定，就为默认值 `22`
+
+>提示：使用 exit 退出当前用户的登录
+提示：在工作中，SSH 服务器的端口号很有可能不是 22，如果遇到这种情况就需要使用 -p 选项，指定正确的端口号，否则无法正常连接到服务器
+
+- scp 就是 `secure copy`，是一个在 Linux 下用来进行 **远程拷贝文件** 的命令
+- 它的**地址格式与 ssh 基本相同**，**需要注意的是**，在指定端口时用的是大写的 `-P` 而不是小写的
+
+```bash
+# 把本地当前目录下的 01.py 文件 复制到 远程 家目录下的 Desktop/01.py
+# 注意：`:` 后面的路径如果不是绝对路径，则以用户的家目录作为参照路径
+scp -P port 01.py user@remote:Desktop/01.py
+
+# 把远程 家目录下的 Desktop/01.py 文件 复制到 本地当前目录下的 01.py
+scp -P port user@remote:Desktop/01.py 01.py
+
+# 加上 -r 选项可以传送文件夹
+# 把当前目录下的 demo 文件夹 复制到 远程 家目录下的 Desktop
+scp -r demo user@remote:Desktop
+
+# 把远程 家目录下的 Desktop 复制到 当前目录下的 demo 文件夹
+scp -r user@remote:Desktop demo
+```
+
+| 选项 | 含义                                                         |
+| ---- | ------------------------------------------------------------ |
+| -r   | 若给出的源文件是目录文件，则 scp 将递归复制该目录下的所有子目录和文件，目标文件必须为一个目录名 |
+| -P   | 若远程 SSH 服务器的端口不是 22，需要使用大写字母 -P 选项指定端口 |
+
+## 02. 服务
+
+- service瞬时操作
+
+  ```bash
+  #查看/停止/启动/重启服务
+  service 服务名 status/stop/start/restart
+  ```
+
+- chkconfig永久操作
+
+  ```bash
+  #关闭/开启服务自启
+  chkconfig 服务名 off/on
+  ```
+
+- CentOS-7.3-防火墙常用命令
+
+| 名称                                      | 命令                                            |
+| ----------------------------------------- | ----------------------------------------------- |
+| 查看firewall服务状态                      | systemctl status firewalld                      |
+| 查看firewall的状态                        | firewall-cmd --state                            |
+| 开启firewalld.service服务                 | service firewalld start                         |
+| 关闭firewalld.service服务                 | service firewalld stop                          |
+| 重启firewalld.service服务                 | service firewalld restart                       |
+| 查看当前防火墙规则                        | firewall-cmd --list-all                         |
+| 查询端口是否开放                          | firewall-cmd --query-port=8080/tcp              |
+| 开放3306端口                              | firewall-cmd --permanent --add-port=3306/tcp    |
+| 移除3306端口                              | firewall-cmd --permanent --remove-port=3306/tcp |
+| 重启防火墙(修改配置后要重启防火墙)        | firewall-cmd --reload                           |
+| 使用管道命令查看firewalld服务开机启动状态 | systemctl list-unit-files                       |
+| 设置firewalld服务开机自启                 | systemctl enable firewalld.service              |
+| 关闭firewalld服务开机自启                 | systemctl disable firewalld.service             |
+
+`参数解释`
+
+1、firwall-cmd：是Linux提供的操作firewall的一个工具；
+2、--permanent：表示设置为持久；
+3、--add-port：标识添加的端口；
+
+## 03. 进程
+
+- 所谓 **进程**，通俗地说就是 **当前正在执行的一个程序** 
+
+| 序号 | 命令               | 作用                                  |
+| ---- | ------------------ | ------------------------------------- |
+| 01   | ps -aux            | `process status` 查看进程的详细状况   |
+| 02   | top                | 动态显示运行中的进程并且排序          |
+| 03   | kill [-9] 进程代号 | 终止指定代号的进程，`-9` 表示强行终止 |
+| 04   | pstree -up         |                                       |
+
+**`ps` 默认只会显示当前用户通过终端启动的应用程序**
+
+ `ps` 选项说明 
+
+| 选项 | 含义                                     |
+| ---- | ---------------------------------------- |
+| a    | 显示终端上的所有进程，包括其他用户的进程 |
+| u    | 显示进程的详细状态                       |
+| x    | 显示没有控制终端的进程                   |
+
+![ps-aux](ps-aux.png)
+
+![ps-options](ps-options.png)
+
+ `pstree` 选项说明 
+
+| 选项 | 含义               |
+| ---- | ------------------ |
+| p    | 显示进程的PID      |
+| u    | 显示进程的所属用户 |
+
+>提示：使用 `kill` 命令时，最好只终止由当前用户开启的进程，而不要终止 `root` 身份开启的进程，否则可能导致系统崩溃
+要退出 `top` 可以直接输入 `q`
+
+# 七、其它命令
 
 ## 01. 查找文件`find`
 
