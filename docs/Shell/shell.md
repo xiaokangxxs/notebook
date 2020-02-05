@@ -6,6 +6,8 @@
 > 4）默认变量是全局的，在函数中变量local指定为局部变量，避免污染其他作用域。
 > 5）有两个命令能帮助我们调试脚本：set -e 遇到执行非0时退出脚本，set-x 打印执行过程。
 > 6）写脚本一定先测试再到生产上。
+> exit 0 代表正常运行程序并退出程序,
+> exit 1 代表非正常运行导致退出程序
 
 ```shell
 #!/bin/bash
@@ -21,12 +23,19 @@ Shell是一个命令行解释器，它为用户提供了一个向Linux内核发�
 
 Shell还是一个功能相当强大的编程语言，易编写、易调试、灵活性强。Shell是解释执行的脚本语言，在Shell中可以调用Linux系统命令。
 
+应用场景：
+
+> 重复性操作
+> 批量事务处理
+> 自动化运维
+> 定时任务执行
+
 ## 2.Shell脚本的执行方式
 
 - 脚本格式
 
-  1. 脚本以**#!/bin/bash**开头
-  2. 脚本必须有可执行权限
+  1. 脚本以**#!/bin/bash**开头，脚本必须有可执行权限
+  2. 脚本内不用添加**#!/bin/bash**，运行时指定shell解释器（/usr/bin/bash、/usr/bin/sh）
 
 - 第一个Shell脚本
 
@@ -44,24 +53,24 @@ Shell还是一个功能相当强大的编程语言，易编写、易调试、灵
 
        ```bash
        chmod 777 HelloWorld.sh
+       chmod u+x,g+x,o+x HelloWorld.sh
        ```
-
+  
     2. 执行脚本
-
+  
        ```bash
        /root/shellExercise/HelloWorld.sh
        ./HelloWorld.sh
        ```
-
+  
     ![helloworld-1](helloworld-1.gif)
-
+  
   - 第二种：bash或sh+脚本（不用赋予脚本+x权限）
-
+  
     ```bash
     sh /root/shellExercise/HelloWorld-1.sh
     sh HelloWorld-1.sh
     ```
-
     ![helloworld-2](helloworld-2.gif)
 
 ## 3.Shell中的变量
@@ -93,12 +102,38 @@ Shell还是一个功能相当强大的编程语言，易编写、易调试、灵
   ```bash
   #定义变量A
   A=8
+  #使用变量A
+  $A或者${A}
   #撤销变量A
   unset A
   #声明静态的变量B=2，不能unset
   readonly B=2
   #可把变量提升为全局环境变量，可供其它Shell程序使用
   export 变量名
+  
+  #variable.sh
+  #!/bin/bash
+  set -o nounset
+  set -o errexit
+  #定义变量
+  NUM_1=1181259634
+  NUM_2=24
+  NUM_3=${NUM_1/125/小康}
+  diyPath=${PATH}
+  echo "The diyPath is>>>${diyPath}"
+  NUM_4=NUM_1
+  #定义只读变量
+  readonly FAILED_COUNT=3
+  #移除非只读变量
+  unset diyPath
+  
+  echo "The number1 is>>>${NUM_1}"
+  echo "The number2 is>>>${NUM_2}"
+  echo "The number3 is>>>${NUM_3}"
+  echo "The number4 is>>>${NUM_4}"
+  echo "The number4 is>>>${!NUM_4}"
+  echo "The failed_count is>>>${FAILED_COUNT}" 
+  echo "The diyPath is>>>${diyPath}"
   ```
 
 ![shell-01](shell-01.gif)
@@ -143,6 +178,8 @@ $*与$@的区别
 - $*与$@都表示传递给函数或脚本的所有参数，不被双引号""包含时，都以$1 $2 ... $n的形式输出所有参数
 - 当它们被双引号""包含时，“$*”会将所有的参数作为一个整体，以“$1 $2 ... $n”的形式输出所有参数；“$@”会将各个参数分开，以”$1" "$2" ... "$n“的形式输出所有参数
 
+![position](position.png)
+
 ### 5.预定义变量
 
 基本语法
@@ -159,7 +196,7 @@ $! （后台运行的最后一个进程的进程号（PID））
 
 基本语法
 
-1. ”$((运算式))“或”$[运算式]“
+1. ”$((运算式))“或”$[运算式]“或((变量=运算的表达式))
 2. expr m+n
 3. expr \*,/,%
 
@@ -180,6 +217,9 @@ $! （后台运行的最后一个进程的进程号（PID））
   ```bash
   [ condition ]（注意：condition前后要有空格）
   #非空返回true，可使用$?验证（0为true，>1为false）
+  
+  test condition
+  [[ condition ]]
   ```
 
 - 案例实操
@@ -190,18 +230,25 @@ $! （后台运行的最后一个进程的进程号（PID））
 
 ```bash
 (1)两个整数之间的比较
-    = 字符串比较
     -lt 小于
     -le 小于等于
     -eq 等于
     -gt 大于
     -ge 大于等于
     -ne 不等于
-（2）按照文件权限进行判断
+（2）逻辑运算
+	-a或&& 逻辑与
+	-o或|| 逻辑或
+	! 逻辑否
+（3）字符串运算
+	= 等于
+	!= 不等于
+	-z 判断是否为空，串的长度为0
+（4）按照文件权限进行判断
     -r 有读的权限
     -w 有写的权限
     -x 有执行的权限
-（3）按照文件类型进行判断
+（5）按照文件类型进行判断
     -f 文件存在并且是一个常规的文件
     -e 文件存在
     -d 文件存在并且是一个目录
