@@ -412,6 +412,28 @@ for i in "$@"
 
 ![while循环](shell-while.gif)
 
+### `遍历目录及其子目录中的所有文件`
+
+```shell
+#! /bin/bash
+#describe：	遍历目录及其子目录中的所有文件
+#author:	xiaokang
+set -o nounset
+set -o errexit
+
+function read_dir(){
+for file in `ls $1` 
+	do
+		 if [ -d $1"/"$file ];then
+			 read_dir $1"/"$file
+		 else
+			 echo $1"/"$file #在此处处理文件即可
+		 fi
+	done
+} 
+read_dir $1
+```
+
 ## 7.read读取控制台输入
 
 - 基本语法
