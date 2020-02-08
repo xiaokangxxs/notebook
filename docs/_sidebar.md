@@ -16,6 +16,7 @@
     - [:dolphin: CentOS7.x完全卸载mysql](SQL/installation/CentOS7.x完全卸载mysql)
 - :books: <strong><font color="#0074D9">大数据</font></strong>
     - [大数据概论及Hadoop生态系统](BigData/大数据概论及Hadoop生态系统)
+    - [:construction_worker: Zookeeper](BigData/Zookeeper简介及核心概念)
     - [:elephant: Hadoop](BigData/hadoop)
 - :four_leaf_clover: <strong><font color="#0074D9">开源框架</font></strong>
     - [:bear: Hibernate](Framework/hibernate)
