@@ -32,11 +32,9 @@
 ### 1.4 大数据部门业务流程分析
 
 <div align="center"> <img width="600px" src="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/BigData/Hadoop/transaction.png"/> </div>
-
 ### 1.5 大数据部门组织结构
 
 <div align="center"> <img width="600px" src="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/BigData/Hadoop/department.png"/> </div>
-
 ## 2.什么是分布式计算
 
 把一个需要非常巨大的计算能力才能解决的问题**分成许多小的部分**，然后把这些部分分配给多个计算机进行**并行**处理，最后把这些计算结果综合起来得到最终的结果。 
@@ -63,7 +61,6 @@ Hadoop是一个由Apache基金会所开发的**开源**的**分布式**系统基
 ### 3.2 什么是Hadoop生态圈
 
 <div align="center"> <img width="600px" src="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/BigData/Hadoop/circle.png"/> </div>
-
 ### 3.3 Hadoop的发展及其版本
 
 - Hadoop发展史
@@ -114,7 +111,6 @@ Hadoop是一个由Apache基金会所开发的**开源**的**分布式**系统基
 ### 3.5 Hadoop生态圈理解
 
 <div align="center"> <img width="600px" src="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/BigData/Hadoop/circle-1.png"/> </div>
-
 1）HDFS （Hadoop Distributed File System）是Hadoop下的分布式文件系统，具有高容错(fault-tolerant)、高吞吐量(high throughput)等特性，可以部署在低成本(low-cost)的硬件上。 
 
 2）Apache YARN (Yet Another Resource Negotiator)  是 hadoop 2.0 引入的集群资源管理系统。用户可以将各种服务框架部署在 YARN 上，由 YARN 进行统一地管理和资源分配。 
@@ -168,3 +164,69 @@ Hadoop是一个由Apache基金会所开发的**开源**的**分布式**系统基
 ### 3.6 Hadoop技术生态体系
 
 <div align="center"> <img width="600px" src="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/BigData/Hadoop/ecology.png"/> </div>
+
+## 4.Hadoop运行模式
+
+Hadoop运行模式包括：**本地模式**、**单机伪分布式模式**以及**完全分布式模式**
+
+1. 本地模式
+
+   官方`grep`案例
+
+   ```shell
+   #在/opt/software/hadoop-2.7.7目录下创建一个input文件夹
+   [xiaokang@hadoop01 hadoop-2.7.7]$ sudo mkdir input
+   #将Hadoop的xml配置文件复制到input目录中
+   [xiaokang@hadoop01 hadoop-2.7.7]$ sudo cp etc/hadoop/*.xml ./input/
+   #执行share目录下目录下的mapreduce程序
+   [root@hadoop01 hadoop-2.7.7]$ bin/hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-2.7.7.jar grep input output 'dfs[a-z.]+'
+   #查看输出结果
+   [root@hadoop01 hadoop-2.7.7]# cat output/part-r-00000 
+   1	dfsadmin
+   ```
+
+   官方`wordcount`案例
+
+   ```shell
+   #在/opt/software/hadoop-2.7.7目录下创建一个wcinput文件夹
+   [xiaokang@hadoop01 hadoop-2.7.7]$ sudo mkdir wcinput
+   #在wcinput目录下创建一个wc.input文件，并写入如下内容
+   [xiaokang@hadoop01 hadoop-2.7.7]$ cd wcinput/
+   [xiaokang@hadoop01 wcinput]$ sudo vim wc.input
+   hadoop hdfs mapreduce yarn
+   xiaokang
+   yarn resourcemanager nodemanager
+   微信公众号 小康新鲜事儿
+   namenode datanode xiaokang
+   微信公众号：小康新鲜事儿 xk1181259634
+   xiaokang xiaokang hadoop
+   xiaokang
+   xiaokangxxs
+   小康新鲜事儿
+   #回到/opt/software/hadoop-2.7.7目录，执行share目录下目录下的mapreduce程序
+   [root@hadoop01 hadoop-2.7.7]$ bin/hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-2.7.7.jar wordcount wcinput wcoutput
+   #查看输出结果
+   [root@hadoop01 hadoop-2.7.7]# cat wcoutput/part-r-00000 
+   datanode	1
+   hadoop	2
+   hdfs	1
+   mapreduce	1
+   namenode	1
+   nodemanager	1
+   resourcemanager	1
+   xiaokang	5
+   xiaokangxxs	1
+   xk1181259634	1
+   yarn	2
+   小康新鲜事儿	2
+   微信公众号	1
+   微信公众号：小康新鲜事儿	1
+   ```
+
+2. 单机伪分布式模式
+
+    [Hadoop单机伪分布式环境搭建](https://mp.weixin.qq.com/s/UB9zuFSvsZxcibrdrdhrKQ)
+
+3. 完全分布式模式
+
+   [Hadoop集群环境搭建](https://mp.weixin.qq.com/s/8ApAXKiCCkb_a-FwL7IqqQ)
