@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<configuration>
+	<property>
+		<!--副本数量，不配置的话默认为3-->
+		<name>dfs.replication</name> 
+		<value>2</value>
+	</property>
+</configuration>
