@@ -29,6 +29,7 @@
     - [② emoji-list](Phone/emoji)
 - :key: <strong><font color="#0074D9">面试指南</font></strong>
     - [大数据技术之企业SQL面试题](SQL/sql-audition)
+    - [HDFS面试题](BigData/HDFS面试题)
     - [实战Shell脚本](Shell/shell-example)
 - :open_book: <strong><font color="#0074D9">电子书籍</font></strong>
     - [Docker-xiaokang :fire:](Books/xiaokang)
