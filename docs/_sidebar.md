@@ -33,6 +33,8 @@
     - [实战Shell脚本](Shell/shell-example)
 - :open_book: <strong><font color="#0074D9">电子书籍</font></strong>
     - [Docker-xiaokang :fire:](Books/xiaokang)
+    - [Hadoop单机伪分布式搭建教程(图文+视频) :fire:](Books/hadoop_standalone)
+    - [Hadoop集群搭建教程(图文+视频) :fire:](Books/hadoop_cluster)
     - [循序渐进学Docker](Books/docker)
     - [Git权威指南](Books/git)
     - [精通正则表达式（第三版）](Books/regex)
