@@ -19,6 +19,7 @@
     - [大数据概论及Hadoop生态系统](BigData/大数据概论及Hadoop生态系统)
     - [:construction_worker: Zookeeper](BigData/Zookeeper简介及核心概念)
     - [:elephant: Hadoop](BigData/hadoop)
+	- [MapReduce进阶详解](BigData/MapReduce进阶详解)
 - :four_leaf_clover: <strong><font color="#0074D9">开源框架</font></strong>
     - [:bear: Hibernate](Framework/hibernate)
     - [:bird: Mybatis](Framework/mybatis)
@@ -30,6 +31,7 @@
 - :key: <strong><font color="#0074D9">面试指南</font></strong>
     - [大数据技术之企业SQL面试题](SQL/sql-audition)
     - [HDFS面试题](BigData/HDFS面试题)
+	- [MapReduce排序案例](BigData/MapReduce排序案例)
     - [实战Shell脚本](Shell/shell-example)
 - :open_book: <strong><font color="#0074D9">电子书籍</font></strong>
     - [Docker-xiaokang :fire:](Books/xiaokang)
