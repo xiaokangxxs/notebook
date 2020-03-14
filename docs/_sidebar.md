@@ -17,9 +17,10 @@
     - [:dolphin: CentOS7.x完全卸载mysql](SQL/installation/CentOS7.x完全卸载mysql)
 - :books: <strong><font color="#0074D9">大数据</font></strong>
     - [大数据概论及Hadoop生态系统](BigData/大数据概论及Hadoop生态系统)
-    - [:construction_worker: Zookeeper](BigData/Zookeeper简介及核心概念)
+    - [:construction_worker: Zookeeper](BigData/Zookeeper)
     - [:elephant: Hadoop](BigData/hadoop)
 	- [MapReduce进阶详解](BigData/MapReduce进阶详解)
+	- [Hadoop企业优化](BigData/Hadoop企业优化)
 - :four_leaf_clover: <strong><font color="#0074D9">开源框架</font></strong>
     - [:bear: Hibernate](Framework/hibernate)
     - [:bird: Mybatis](Framework/mybatis)
