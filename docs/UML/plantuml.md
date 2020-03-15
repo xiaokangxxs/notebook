@@ -20,15 +20,11 @@ __ private field __
  -user_phone : String //手机号
  -user_sex : Character //性别
  -email : String //邮箱
- -address : String //地址
  -question : String //密保问题
  -answer : String //密保答案
  -register_date : Date //注册时间
  -face : String //头像
- -score : Integer //积分
  -state : Character //状态
- -activecode : String //激活码
- -activestate : Character //激活状态
  -level : Integer //用户级别
  -loginDate : Date //上次登录时间
 .. Some Getter ..
@@ -63,10 +59,7 @@ User -- (密保问题)
 User -- (密保答案)
 User -- (注册时间)
 User -- (头像)
-User -- (积分)
 User -- (状态)
-User -- (激活码)
-User -- (激活状态)
 User -- (用户级别)
 User -- (上次登录时间)
 @enduml
@@ -82,10 +75,9 @@ __ private field __
  -manager_id : String //管理员编号
  -manager_name : String //管理员姓名
  -manager_pwd : String //管理员密码
- -manager_number : String //管理员手机号
+ -manager_phone : String //管理员手机号
  -manager_sex : Character //管理员性别
  -birthday : Date //出生日期
- -manager_face : String //管理员头像
  -manager_idcard : String //管理员身份证号
  -manager_address : String //管理员住址
 .. Some Getter ..
@@ -110,7 +102,6 @@ Manager -- (管理员密码)
 Manager -- (管理员手机号)
 Manager -- (管理员性别)
 Manager -- (出生日期)
-Manager -- (管理员头像)
 Manager -- (管理员身份证号)
 Manager -- (管理员住址)
 @enduml
@@ -125,7 +116,6 @@ class Role {
 __ private field __
  -role_id : String //角色编号
  -role_name : String //角色名称
- -role_code : String //角色关键字
  -role_desc : String //角色描述
 .. Some Getter ..
   + getRole_id()
@@ -145,7 +135,6 @@ __ private field __
 rectangle Role
 Role -- (role_id)
 Role -- (角色名称)
-Role -- (角色关键字)
 Role -- (角色描述)
 @enduml
 ```
@@ -155,22 +144,22 @@ Role -- (角色描述)
 ```plantuml
 @startuml
 
-class Function {
+class Menu {
 __ private field __
- -id : String //权限编号
- -name : String //权限名称
- -code : String //权限关键字
- -fundesc : String //权限描述
- -page : String //权限url
+ -menu_id : String //权限编号
+ -menu_name : String //权限名称
+ -menu_code : String //权限关键字
+ -menu_desc : String //权限描述
+ -menu_page : String //权限url
  -zindex : Integer //权限优先级
  -generatemenu : String //是否生成菜单
 .. Some Getter ..
-  + getId()
-  + getName()
+  + getMenu_id()
+  + getMenu_name()
   ...
 .. Some setter ..
-  + setId(String id)
-  + setName(String name)
+  + getMenu_id(String menu_id)
+  + getMenu_name(String menu_name)
   ...
 }
 
@@ -179,14 +168,14 @@ __ private field __
 
 ```plantuml
 @startuml
-rectangle Function
-Function -- (id)
-Function -- (权限名称)
-Function -- (权限关键字)
-Function -- (权限描述)
-Function -- (权限url)
-Function -- (权限优先级)
-Function -- (是否生成菜单)
+rectangle Menu
+Menu -- (menu_id)
+Menu -- (权限名称)
+Menu -- (权限关键字)
+Menu -- (权限描述)
+Menu -- (权限url)
+Menu -- (权限优先级)
+Menu -- (是否生成菜单)
 @enduml
 ```
 
@@ -202,6 +191,8 @@ __ private field __
  -inaccount_money : Double //收入金额
  -inaccount_createtime : Date //收入账单创建时间
  -inaccount_desc : String //收入账单备注
+ -in_user_id : Long //用户id
+ -in_type_id : Long //收入类型id
 .. Some Getter ..
   + getInaccount_id()
   + getInaccount_datetime()
@@ -223,6 +214,8 @@ InAccount -- (收入日期时间)
 InAccount -- (收入金额)
 InAccount -- (收入账单创建时间)
 InAccount -- (收入账单备注)
+InAccount -- (用户id)
+InAccount -- (收入类型id)
 @enduml
 ```
 
@@ -237,6 +230,7 @@ __ private field __
  -inaccounttype_name : String //收入类型名称
  -inaccounttype_createtime : Date //收入类型创建时间
  -inaccounttype_desc : String //收入类型备注
+ -it_user_id : Long //用户id
 .. Some Getter ..
   + getInaccounttype_id()
   + getInaccounttype_name()
@@ -257,6 +251,7 @@ InAccountType -- (inaccounttype_id)
 InAccountType -- (收入类型名称)
 InAccountType -- (收入类型创建时间)
 InAccountType -- (收入类型备注)
+InAccountType -- (用户id)
 @enduml
 ```
 
@@ -272,6 +267,8 @@ __ private field __
  -outaccount_money : Double //支出金额
  -outaccount_createtime : Date //支出账单创建时间
  -outaccount_desc : String //支出账单备注
+ -out_user_id : Long //用户id
+ -out_type_id : Long //支出类型id 
 .. Some Getter ..
   + getOutaccount_id()
   + getOutaccount_datetime()
@@ -293,6 +290,8 @@ OutAccount -- (支出日期时间)
 OutAccount -- (支出金额)
 OutAccount -- (支出账单创建时间)
 OutAccount -- (支出账单备注)
+OutAccount -- (用户id)
+OutAccount -- (支出类型id)
 @enduml
 ```
 
@@ -307,6 +306,7 @@ __ private field __
  -outaccounttype_name : String //收入类型名称
  -outaccounttype_createtime : Date //收入类型创建时间
  -outaccounttype_desc : String //收入类型备注
+ -ot_user_id : Long //用户id
 .. Some Getter ..
   + getOutaccounttype_id()
   + getOutaccounttype_name()
@@ -327,6 +327,7 @@ OutAccountType -- (outaccounttype_id)
 OutAccountType -- (支出类型名称)
 OutAccountType -- (支出类型创建时间)
 OutAccountType -- (支出类型备注)
+OutAccountType -- (用户id)
 @enduml
 ```
 
@@ -380,6 +381,8 @@ __ private field __
  -topic_zan : Integer //点赞数
  -topic_bad : Integer //鄙视数
  -del : Character // 是否删除 1:删除 0：未删除
+ -topic_user_id : Long //用户id
+ -topic_region_id : Integer //交流大区id
 .. Some Getter ..
   + getTopic_id()
   + getTopic_title()
@@ -407,6 +410,8 @@ Topic -- (浏览数量)
 Topic -- (点赞数)
 Topic -- (鄙视数)
 Topic -- (是否删除)
+Topic -- (用户id)
+Topic -- (交流大区id)
 @enduml
 ```
 
@@ -424,6 +429,8 @@ __ private field __
  -zan : Integer // 点赞数
  -bad : Integer // 鄙视数
  -status : Integer // 是否被查看
+ -reply_user_id : Long //用户id
+ -reply_topic_id : Long //帖子id
 .. Some Getter ..
   + getReply_id()
   + getReply_content()
@@ -447,6 +454,8 @@ Reply -- (是否置顶)
 Reply -- (点赞数)
 Reply -- (鄙视数)
 Reply -- (是否被查看)
+Reply -- (用户id)
+Reply -- (帖子id)
 @enduml
 ```
 
@@ -466,6 +475,7 @@ __ private field __
  -interest_rates : Double // 利率
  -invest_money : Double // 投资金额
  -invest_desc : String // 投资理财备注
+ -invest_user_id : Long //用户id
 .. Some Getter ..
   + getInvest_id()
   + getInvestname()
@@ -491,6 +501,7 @@ Invest -- (创建时间)
 Invest -- (利率)
 Invest -- (投资金额)
 Invest -- (投资理财备注)
+Invest -- (用户id)
 @enduml
 ```
 
@@ -511,6 +522,7 @@ __ private field __
  -loan_source : String // 借款来源
  -loan_desc : String // 借款还贷备注
  -loan_createtime : Date // 创建时间
+ -loan_user_id : Long //用户id
 .. Some Getter ..
   + getLoan_id()
   + getLoanname()
@@ -537,7 +549,58 @@ Loan -- (借款金额)
 Loan -- (借款来源)
 Loan -- (借款还贷备注)
 Loan -- (创建时间)
+Loan -- (用户id)
 @enduml
+```
+
+## 数据备份机制
+
+```shell
+cription:  MySQL backup shell script  
+# author:       xiaokang
+# familyaccount.xiaokang.cool 为专门的备份服务器，需要做一下服务器之间免密码登录
+
+MYSQLDUMP=`which mysqldump`
+#备份的数据库名
+DATABASES=(
+            "familyaccount"
+)
+USER="root"
+PASSWORD="******"
+
+MAIL="xiaokang.188@qq.com" 
+BACKUP_DIR=/home/backup
+LOGFILE=/home/backup/data_backup.log 
+DATE=`date +%Y%m%d_%H%M`
+
+cd $BACKUP_DIR
+#开始备份之前，将备份信息头写入日记文件   
+echo "--------------------" >> $LOGFILE   
+echo "BACKUP DATE:" $(date +"%y-%m-%d %H:%M:%S") >> $LOGFILE   
+echo "-------------------" >> $LOGFILE
+
+for DATABASE in ${DATABASES};do
+  $MYSQLDUMP -u$USER -p$PASSWORD --events  -R --opt  $DATABASE | gzip >${BACKUP_DIR}\/${DATABASE}_${DATE}.sql.gz
+  if [ $? == 0 ];then
+    echo "$DATE--$DATABASE is backup succeed" >> $LOGFILE
+  else
+    echo "Database Backup Failed!" >> $LOGFILE   
+done
+#判断数据库备份是否全部成功，全部成功就同步到小康个人服务器
+if [ $? == 0 ];then
+  /usr/bin/rsync -zrtopg   --delete  /home/backup/* xiaokang@familyaccount.xiaokang.cool:/home/xiaokang/familyaccount_sql_backup/  >/dev/null 2>&1
+else
+  echo "Database Backup Fail!" >> $LOGFILE   
+  #备份失败后向管理者发送邮件提醒
+  mail -s "database Daily Backup Failed!" $MAIL   
+fi
+
+#删除30天以上的备份文件  
+find $BACKUP_DIR  -type f -mtime +30 -name "*.gz" -exec rm -f {} \;
+
+【crontab定时任务】
+#每天凌晨过一分钟,对familyaccount数据库进行全量备份并同步到小康个人服务器
+1 0 * * * sh ~/familyaccount_backup.sh
 ```
 
 ## 参考案例
