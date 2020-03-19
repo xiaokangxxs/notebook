@@ -40,6 +40,7 @@
     - [Docker-xiaokang :fire:](Books/xiaokang)
     - [Hadoop单机伪分布式搭建教程(图文+视频) :fire:](Books/hadoop_standalone)
     - [Hadoop集群搭建教程(图文+视频) :fire:](Books/hadoop_cluster)
+    - [HA(高可用)-Hadoop集群搭建教程(图文+视频) :fire:](Books/hadoop_ha)
     - [大数据技术之高频面试题7.5](Books/大数据技术之高频面试题7.5)
     - [循序渐进学Docker](Books/docker)
     - [Git权威指南](Books/git)
