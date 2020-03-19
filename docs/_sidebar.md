@@ -19,6 +19,7 @@
     - [大数据概论及Hadoop生态系统](BigData/大数据概论及Hadoop生态系统)
     - [:construction_worker: Zookeeper](BigData/Zookeeper)
     - [:elephant: Hadoop](BigData/hadoop)
+	-  [:honeybee: Hive](BigData/hive) 
 	- [MapReduce进阶详解](BigData/MapReduce进阶详解)
 	- [Hadoop企业优化](BigData/Hadoop企业优化)
 - :four_leaf_clover: <strong><font color="#0074D9">开源框架</font></strong>
@@ -39,6 +40,7 @@
     - [Docker-xiaokang :fire:](Books/xiaokang)
     - [Hadoop单机伪分布式搭建教程(图文+视频) :fire:](Books/hadoop_standalone)
     - [Hadoop集群搭建教程(图文+视频) :fire:](Books/hadoop_cluster)
+    - [大数据技术之高频面试题7.5](Books/大数据技术之高频面试题7.5)
     - [循序渐进学Docker](Books/docker)
     - [Git权威指南](Books/git)
     - [精通正则表达式（第三版）](Books/regex)

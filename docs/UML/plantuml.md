@@ -13,8 +13,6 @@ __ private field __
  -user_password : String //用户密码
  -birthday : Date //出生日期
  -idcard : String //身份证号
- -province : String //省
- -city : String //市
  -details : String //详细地址
  -realname : String //真实姓名
  -user_phone : String //手机号
@@ -48,8 +46,6 @@ User -- (用户昵称)
 User -- (用户密码)
 User -- (出生日期)
 User -- (身份证号)
-User -- (省)
-User -- (市)
 User -- (详细地址)
 User -- (真实姓名)
 User -- (手机号)
@@ -600,8 +596,74 @@ find $BACKUP_DIR  -type f -mtime +30 -name "*.gz" -exec rm -f {} \;
 
 【crontab定时任务】
 #每天凌晨过一分钟,对familyaccount数据库进行全量备份并同步到小康个人服务器
-1 0 * * * sh ~/familyaccount_backup.sh
+1 0 * * * sh /root/familyaccount_backup.sh
 ```
+
+## 前端页面
+
+### 1. 登录界面
+
+<div align="center"> <img width="600px" src="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/UML/familyaccount/login.png"/> </div>
+
+### 2. 家庭户主主界面
+
+<div align="center"> <img width="600px" src="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/UML/familyaccount/family-leader.png"/> </div>
+
+### 3. 家庭成员主界面
+
+<div align="center"> <img width="600px" src="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/UML/familyaccount/family-follower.png"/> </div>
+
+### 4. 收入账单列表
+
+<div align="center"> <img width="600px" src="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/UML/familyaccount/inaccount_list.png"/> </div>
+
+### 5. 收入账单类型列表
+
+<div align="center"> <img width="600px" src="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/UML/familyaccount/inaccounttype_list.png"/> </div>
+
+### 6. 添加收入账单
+
+<div align="center"> <img width="600px" src="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/UML/familyaccount/inaccount_add.png"/> </div>
+
+### 7. 添加收入账单类型
+
+<div align="center"> <img width="600px" src="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/UML/familyaccount/inaccounttype_add.png"/> </div>
+
+### 8. 收入账单报表
+
+<div align="center"> <img width="600px" src="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/UML/familyaccount/inaccount_report.png"/> </div>
+
+### 9. 交流大区
+
+<div align="center"> <img width="600px" src="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/UML/familyaccount/region.png"/> </div>
+
+### 10. 投资理财列表（家庭户主）
+
+<div align="center"> <img width="600px" src="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/UML/familyaccount/invest.png"/> </div>
+
+### 11. 借款还贷列表（家庭户主）
+
+<div align="center"> <img width="600px" src="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/UML/familyaccount/loan.png"/> </div>
+
+### 12. 主题帖列表
+
+<div align="center"> <img width="600px" src="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/UML/familyaccount/topics.png"/> </div>
+
+### 13. 帖子详情
+
+<div align="center"> <img width="600px" src="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/UML/familyaccount/perTopic.png"/> </div>
+
+### 14. Solr搜索高亮显示
+
+<div align="center"> <img width="600px" src="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/UML/familyaccount/solr.png"/> </div>
+
+### 15. 我的帖子
+
+<div align="center"> <img width="600px" src="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/UML/familyaccount/myTopic.png"/> </div>
+
+## 后台页面
+
+
 
 ## 参考案例
 
