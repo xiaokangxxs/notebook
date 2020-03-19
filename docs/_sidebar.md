@@ -14,6 +14,7 @@
     - [⑤ Hadoop集群环境搭建](BigData/installation/Hadoop集群环境搭建)
     - [⑥ Zookeeper单机环境和集群环境搭建](BigData/installation/Zookeeper单机环境和集群环境搭建)
     - [⑦ 基于Zookeeper搭建Hadoop高可用集群](BigData/installation/基于Zookeeper搭建Hadoop高可用集群)
+    - [⑧ Linux下Hive的安装.md](BigData/installation/Hive安装教程)
     - [:dolphin: CentOS7.x完全卸载mysql](SQL/installation/CentOS7.x完全卸载mysql)
 - :books: <strong><font color="#0074D9">大数据</font></strong>
     - [大数据概论及Hadoop生态系统](BigData/大数据概论及Hadoop生态系统)
