@@ -376,7 +376,8 @@ __ private field __
  -look_count : Integer // 浏览数量
  -topic_zan : Integer //点赞数
  -topic_bad : Integer //鄙视数
- -del : Character // 是否删除 1:删除 0：未删除
+ -del : Character // 帖子是否删除 1:删除 0：未删除
+ -solrDel : Character // 索引是否删除 1:删除 0：未删除
  -topic_user_id : Long //用户id
  -topic_region_id : Integer //交流大区id
 .. Some Getter ..
@@ -405,7 +406,8 @@ Topic -- (是否结帖)
 Topic -- (浏览数量)
 Topic -- (点赞数)
 Topic -- (鄙视数)
-Topic -- (是否删除)
+Topic -- (帖子是否删除)
+Topic -- (索引是否删除)
 Topic -- (用户id)
 Topic -- (交流大区id)
 @enduml
@@ -558,11 +560,9 @@ cription:  MySQL backup shell script
 
 MYSQLDUMP=`which mysqldump`
 #备份的数据库名
-DATABASES=(
-            "familyaccount"
-)
+DATABASE="familyaccount"
 USER="root"
-PASSWORD="******"
+PASSWORD="123456"
 
 MAIL="xiaokang.188@qq.com" 
 BACKUP_DIR=/home/backup
@@ -575,13 +575,12 @@ echo "--------------------" >> $LOGFILE
 echo "BACKUP DATE:" $(date +"%y-%m-%d %H:%M:%S") >> $LOGFILE   
 echo "-------------------" >> $LOGFILE
 
-for DATABASE in ${DATABASES};do
-  $MYSQLDUMP -u$USER -p$PASSWORD --events  -R --opt  $DATABASE | gzip >${BACKUP_DIR}\/${DATABASE}_${DATE}.sql.gz
-  if [ $? == 0 ];then
+$MYSQLDUMP -u$USER -p$PASSWORD --events  -R --opt  $DATABASE | gzip >${BACKUP_DIR}\/${DATABASE}_${DATE}.sql.gz
+if [ $? == 0 ];then
     echo "$DATE--$DATABASE is backup succeed" >> $LOGFILE
-  else
+else
     echo "Database Backup Failed!" >> $LOGFILE   
-done
+fi
 #判断数据库备份是否全部成功，全部成功就同步到小康个人服务器
 if [ $? == 0 ];then
   /usr/bin/rsync -zrtopg   --delete  /home/backup/* xiaokang@familyaccount.xiaokang.cool:/home/xiaokang/familyaccount_sql_backup/  >/dev/null 2>&1
@@ -604,66 +603,77 @@ find $BACKUP_DIR  -type f -mtime +30 -name "*.gz" -exec rm -f {} \;
 ### 1. 登录界面
 
 <div align="center"> <img width="600px" src="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/UML/familyaccount/login.png"/> </div>
-
 ### 2. 家庭户主主界面
 
 <div align="center"> <img width="600px" src="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/UML/familyaccount/family-leader.png"/> </div>
-
 ### 3. 家庭成员主界面
 
 <div align="center"> <img width="600px" src="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/UML/familyaccount/family-follower.png"/> </div>
-
 ### 4. 收入账单列表
 
 <div align="center"> <img width="600px" src="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/UML/familyaccount/inaccount_list.png"/> </div>
-
 ### 5. 收入账单类型列表
 
 <div align="center"> <img width="600px" src="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/UML/familyaccount/inaccounttype_list.png"/> </div>
-
 ### 6. 添加收入账单
 
 <div align="center"> <img width="600px" src="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/UML/familyaccount/inaccount_add.png"/> </div>
-
 ### 7. 添加收入账单类型
 
 <div align="center"> <img width="600px" src="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/UML/familyaccount/inaccounttype_add.png"/> </div>
-
 ### 8. 收入账单报表
 
 <div align="center"> <img width="600px" src="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/UML/familyaccount/inaccount_report.png"/> </div>
-
 ### 9. 交流大区
 
 <div align="center"> <img width="600px" src="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/UML/familyaccount/region.png"/> </div>
-
 ### 10. 投资理财列表（家庭户主）
 
 <div align="center"> <img width="600px" src="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/UML/familyaccount/invest.png"/> </div>
-
 ### 11. 借款还贷列表（家庭户主）
 
 <div align="center"> <img width="600px" src="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/UML/familyaccount/loan.png"/> </div>
-
 ### 12. 主题帖列表
 
 <div align="center"> <img width="600px" src="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/UML/familyaccount/topics.png"/> </div>
-
 ### 13. 帖子详情
 
 <div align="center"> <img width="600px" src="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/UML/familyaccount/perTopic.png"/> </div>
-
 ### 14. Solr搜索高亮显示
 
 <div align="center"> <img width="600px" src="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/UML/familyaccount/solr.png"/> </div>
-
 ### 15. 我的帖子
 
 <div align="center"> <img width="600px" src="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/UML/familyaccount/myTopic.png"/> </div>
-
 ## 后台页面
 
 
+
+## 登录时序图
+
+```plantuml
+@startuml
+actor User
+
+User -> 登录页面: 1.访问登录页面
+activate 登录页面
+
+登录页面 -> 登录页面: 2.创建登录会话
+deactivate 登录页面
+
+User -> 登录页面: 3.提交身份信息
+activate 登录页面
+
+登录页面 -> 登录页面: 4.系统进行验证
+deactivate 登录页面
+
+登录页面 -> 系统主界面: 5.验证通过进入系统主界面
+deactivate 系统主界面
+
+登录页面 -> User: 验证失败返回错误信息
+deactivate 登录页面
+@enduml
+```
 
 ## 参考案例
 
