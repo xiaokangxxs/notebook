@@ -17,6 +17,7 @@
     - [⑧ Linux下Hive的安装](BigData/installation/Hive安装教程)
     - [⑨ HBase单机伪分布式集群环境搭建](BigData/installation/HBase单机伪分布式集群环境搭建)
     - [⑩ HA-HBase集群环境搭建](BigData/installation/HA-HBase集群环境搭建)
+    - [:ocean: Sqoop安装及基本使用](BigData/Sqoop安装及基本使用)
     - [:dolphin: CentOS7.x完全卸载mysql](SQL/installation/CentOS7.x完全卸载mysql)
 - :books: <strong><font color="#0074D9">大数据</font></strong>
     - [大数据概论及Hadoop生态系统](BigData/大数据概论及Hadoop生态系统)

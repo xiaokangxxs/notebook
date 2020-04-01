@@ -44,15 +44,13 @@ rectangle User
 User -- (user_id)
 User -- (用户昵称)
 User -- (用户密码)
+User -- (性别)
+User -- (手机号)
 User -- (出生日期)
 User -- (身份证号)
 User -- (详细地址)
 User -- (真实姓名)
-User -- (手机号)
-User -- (性别)
 User -- (邮箱)
-User -- (密保问题)
-User -- (密保答案)
 User -- (注册时间)
 User -- (头像)
 User -- (状态)
@@ -74,8 +72,8 @@ __ private field __
  -manager_phone : String //管理员手机号
  -manager_sex : Character //管理员性别
  -birthday : Date //出生日期
- -manager_idcard : String //管理员身份证号
- -manager_address : String //管理员住址
+ -idcard : String //身份证号
+ -address : String //详细住址
 .. Some Getter ..
   + getManager_id()
   + getManager_name()
@@ -98,8 +96,8 @@ Manager -- (管理员密码)
 Manager -- (管理员手机号)
 Manager -- (管理员性别)
 Manager -- (出生日期)
-Manager -- (管理员身份证号)
-Manager -- (管理员住址)
+Manager -- (身份证号)
+Manager -- (详细住址)
 @enduml
 ```
 
@@ -403,9 +401,9 @@ Topic -- (主题帖发布日期)
 Topic -- (是否置顶)
 Topic -- (是否加精)
 Topic -- (是否结帖)
-Topic -- (浏览数量)
 Topic -- (点赞数)
 Topic -- (鄙视数)
+Topic -- (浏览数量)
 Topic -- (帖子是否删除)
 Topic -- (索引是否删除)
 Topic -- (用户id)
@@ -423,7 +421,6 @@ __ private field __
  -reply_id : Long // 回复贴编号
  -reply_content : String // 回复内容
  -reply_datetime : Date // 回复日期
- -is_top : Character // 是否置顶
  -zan : Integer // 点赞数
  -bad : Integer // 鄙视数
  -status : Integer // 是否被查看
@@ -448,7 +445,6 @@ rectangle Reply
 Reply -- (reply_id)
 Reply -- (回复内容)
 Reply -- (回复日期)
-Reply -- (是否置顶)
 Reply -- (点赞数)
 Reply -- (鄙视数)
 Reply -- (是否被查看)
@@ -465,7 +461,7 @@ Reply -- (帖子id)
 class Invest {
 __ private field __
  -invest_id : String // 投资理财编号
- -investname : String // 投资理财名称
+ -invest_name : String // 投资理财名称
  -invest_datetime : Date // 时间
  -invest_year : Integer // 投资周期
  -invest_target : String // 投资目标
@@ -492,7 +488,7 @@ __ private field __
 rectangle Invest
 Invest -- (invest_id)
 Invest -- (投资理财名称)
-Invest -- (时间)
+Invest -- (投资时间)
 Invest -- (投资周期)
 Invest -- (投资目标)
 Invest -- (创建时间)
@@ -510,9 +506,8 @@ Invest -- (用户id)
 
 class Loan {
 __ private field __
- -invest_id : String // 投资理财编号
  -loan_id : String // 借款还贷编号
- -loanname : String // 借款还贷名称
+ -loan_name : String // 借款还贷名称
  -loan_datetime : Date // 借款还贷日期
  -loan_year : Integer // 周期（按年）
  -interest_rates : Double // 利息率
@@ -538,7 +533,6 @@ __ private field __
 @startuml
 rectangle Loan
 Loan -- (loan_id)
-Loan -- (投资理财编号)
 Loan -- (借款还贷名称)
 Loan -- (借款还贷日期)
 Loan -- (周期（按年）)
