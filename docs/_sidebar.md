@@ -17,10 +17,11 @@
     - [⑧ Linux下Hive的安装](BigData/installation/Hive安装教程)
     - [⑨ HBase单机伪分布式集群环境搭建](BigData/installation/HBase单机伪分布式集群环境搭建)
     - [⑩ HA-HBase集群环境搭建](BigData/installation/HA-HBase集群环境搭建)
+    - [:eight_pointed_black_star: Kafka集群环境搭建](BigData/installation/Kafka集群环境搭建)
     - [:dragon_face: Kylin(麒麟)安装及简单使用](BigData/Kylin安装及简单使用)
-    - [:snake: Linux下Python的安装](Linux/python)
-    - [:ocean: Sqoop安装及基本使用](BigData/Sqoop安装及基本使用)
     - [:shell: Flume安装及基本使用](BigData/Flume安装及基本使用)
+    - [:ocean: Sqoop安装及基本使用](BigData/Sqoop安装及基本使用)
+    - [:snake: Linux下Python的安装](Linux/python)
     - [:wrench: DataX安装及基本使用](BigData/DataX安装及基本使用)
     - [:dolphin: CentOS7.x完全卸载mysql](SQL/installation/CentOS7.x完全卸载mysql)
 - :books: <strong><font color="#0074D9">大数据</font></strong>
