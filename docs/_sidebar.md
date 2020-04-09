@@ -17,6 +17,7 @@
     - [⑧ Linux下Hive的安装](BigData/installation/Hive安装教程)
     - [⑨ HBase单机伪分布式集群环境搭建](BigData/installation/HBase单机伪分布式集群环境搭建)
     - [⑩ HA-HBase集群环境搭建](BigData/installation/HA-HBase集群环境搭建)
+    - [:izakaya_lantern: Scala环境搭建](BigData/installation/Scala环境搭建)
     - [:eight_pointed_black_star: Kafka集群环境搭建](BigData/installation/Kafka集群环境搭建)
     - [:dragon_face: Kylin(麒麟)安装及简单使用](BigData/Kylin安装及简单使用)
     - [:shell: Flume安装及基本使用](BigData/Flume安装及基本使用)
