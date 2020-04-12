@@ -17,6 +17,7 @@
     - [⑧ Linux下Hive的安装](BigData/installation/Hive安装教程)
     - [⑨ HBase单机伪分布式集群环境搭建](BigData/installation/HBase单机伪分布式集群环境搭建)
     - [⑩ HA-HBase集群环境搭建](BigData/installation/HA-HBase集群环境搭建)
+    - [:arrows_counterclockwise: Azkaban-solo-server环境搭建](BigData/installation/Azkaban-solo-server环境搭建)
     - [:rice_scene: Maven安装与配置](BigData/installation/Maven安装与配置)
     - [:crystal_ball: Gradle安装与配置](BigData/installation/Gradle安装与配置)
     - [:izakaya_lantern: Scala环境搭建](BigData/installation/Scala环境搭建)
