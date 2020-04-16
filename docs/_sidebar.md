@@ -37,6 +37,8 @@
 	-  [:honeybee: Hive](BigData/hive) 
 	- [MapReduce进阶详解](BigData/MapReduce进阶详解)
 	- [Hadoop企业优化](BigData/Hadoop企业优化)
+- :department_store: <strong><font color="#0074D9">容器化技术</font></strong>
+    - [Docker环境下Hadoop单机伪分布式](BigData/Docker环境下Hadoop单机伪分布式)
 - :four_leaf_clover: <strong><font color="#0074D9">开源框架</font></strong>
     - [:bear: Hibernate](Framework/hibernate)
     - [:bird: Mybatis](Framework/mybatis)
