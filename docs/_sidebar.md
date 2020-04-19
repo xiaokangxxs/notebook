@@ -44,6 +44,8 @@
 - :department_store: <strong><font color="#0074D9">容器化技术</font></strong>
     - [Docker环境下Hadoop单机伪分布式](BigData/Docker环境下Hadoop单机伪分布式)
     - [Docker环境下Hadoop完全分布式](BigData/Docker环境下Hadoop完全分布式)
+    - [Docker之镜像拉取、删除及重命名](BigData/Docker之镜像拉取、删除及重命名)
+    - [Docker环境下HA(高可用)-Hadoop集群](BigData/Docker环境下HA(高可用)-Hadoop集群)
 - :four_leaf_clover: <strong><font color="#0074D9">开源框架</font></strong>
     - [:bear: Hibernate](Framework/hibernate)
     - [:bird: Mybatis](Framework/mybatis)
