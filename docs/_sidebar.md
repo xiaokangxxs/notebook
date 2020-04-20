@@ -38,7 +38,9 @@
 	-  [:whale: HBase](BigData/hbase)
 	-  [:dragon_face: Kylin](BigData/kylin)  
 	-  [:ocean: Sqoop](BigData/sqoop)
-	-  [:arrows_counterclockwise: Azkaban](BigData/Azkaban)  
+	-  [:arrows_counterclockwise: Azkaban](BigData/Azkaban) 
+	-  [:eight_pointed_black_star: Kafka](BigData/kafka)
+	-  [:shell: Flume](BigData/flume) 
 	- [MapReduce进阶详解](BigData/MapReduce进阶详解)
 	- [Hadoop企业优化](BigData/Hadoop企业优化)
 - :department_store: <strong><font color="#0074D9">容器化技术</font></strong>
