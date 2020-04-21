@@ -1,0 +1,62 @@
+# 指定 compose 文件的版本
+version: "3.8"
+# 指定服务
+services:
+        zoo1:
+                # 指定镜像名称或镜像ID
+                image: 4e6f2f153ac8
+                # 给容器设置标签
+                labels:
+                        - "desc=This is 3 node zookeeper-cluster"
+                        - "author=xiaokang"
+                        - "date=2020-04-21 19:20:11"
+                # 容器将始终重新启动
+                restart: always
+                # 主机名
+                hostname: zoo1
+                # 特权模式(能使用systemctl)
+                privileged: true
+                # 指定容器的名称 (等同于 docker run --name 的作用)
+                container_name: zoo1
+                networks:
+                    xiaokang_net:
+                        ipv4_address: 172.24.11.5
+                ports:
+                        - 2181:2181
+                environment:
+                        ZOO_MY_ID: 1
+                        ZOO_SERVERS: server.1=0.0.0.0:2888:3888;2181 server.2=zoo2:2888:3888;2181 server.3=zoo3:2888:3888;2181
+        zoo2:
+                image: 4e6f2f153ac8
+                restart: always
+                hostname: zoo2
+                privileged: true
+                container_name: zoo2
+                networks:
+                    xiaokang_net:
+                        ipv4_address: 172.24.11.6
+                ports:
+                        - 2182:2181
+                environment:
+                        ZOO_MY_ID: 2
+                        ZOO_SERVERS: server.1=zoo1:2888:3888;2181 server.2=0.0.0.0:2888:3888;2181 server.3=zoo3:2888:3888;2181
+        zoo3:
+                image: 4e6f2f153ac8
+                restart: always
+                hostname: zoo3
+                privileged: true
+                container_name: zoo3
+                networks:
+                    xiaokang_net:
+                        ipv4_address: 172.24.11.7
+                ports:
+                        - 2183:2181
+                environment:
+                        ZOO_MY_ID: 3
+                        ZOO_SERVERS: server.1=zoo1:2888:3888;2181 server.2=zoo2:2888:3888;2181 server.3=0.0.0.0:2888:3888;2181
+networks:
+  xiaokang_net:
+    ipam:
+      driver: default
+      config:
+        - subnet: "172.24.11.0/24"
