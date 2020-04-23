@@ -26,6 +26,7 @@
     - [:eight_pointed_black_star: Kafka集群环境搭建](BigData/installation/Kafka集群环境搭建)
     - [:dragon_face: Kylin(麒麟)安装及简单使用](BigData/Kylin安装及简单使用)
     - [:shell: Flume安装及基本使用](BigData/Flume安装及基本使用)
+    - [:left_right_arrow: Flume整合Kafka](BigData/Flume整合Kafka)
     - [:ocean: Sqoop安装及基本使用](BigData/Sqoop安装及基本使用)
     - [:snake: Linux下Python的安装](Linux/python)
     - [:wrench: DataX安装及基本使用](BigData/DataX安装及基本使用)
