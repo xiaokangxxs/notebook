@@ -147,7 +147,7 @@ echo "--------------------" >> $LOGFILE
 echo "BACKUP DATE:" $(date +"%y-%m-%d %H:%M:%S") >> $LOGFILE   
 echo "-------------------" >> $LOGFILE
 
-for DATABASE in ${DATABASES};do
+for DATABASE in ${DATABASES[*]};do
   $MYSQLDUMP -u$USER -p$PASSWORD --events  -R --opt  $DATABASE | gzip >${BACKUP_DIR}\/${DATABASE}_${DATE}.sql.gz
   if [ $? == 0 ];then
     echo "$DATE--$DATABASE is backup succeed" >> $LOGFILE
