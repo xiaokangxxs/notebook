@@ -31,6 +31,12 @@
     - [:snake: Linux下Python的安装](Linux/python)
     - [:wrench: DataX安装及基本使用](BigData/DataX安装及基本使用)
     - [:dolphin: CentOS7.x完全卸载mysql](SQL/installation/CentOS7.x完全卸载mysql)
+- :droplet: <strong><font color="#0074D9">大数据常用Shell脚本</font></strong>
+    - [分发脚本](Shell/大数据常用shell脚本之分发脚本)
+    - [zk脚本](Shell/大数据常用shell脚本之zk脚本)
+    - [ha-hadoop脚本](Shell/大数据常用shell脚本之ha-hadoop脚本)
+    - [kf脚本](Shell/大数据常用shell脚本之kf脚本)
+    - [fl脚本](Shell/大数据常用shell脚本之fl脚本)
 - :books: <strong><font color="#0074D9">大数据</font></strong>
     - [大数据概论及Hadoop生态系统](BigData/大数据概论及Hadoop生态系统)
     - [:construction_worker: Zookeeper](BigData/Zookeeper)
