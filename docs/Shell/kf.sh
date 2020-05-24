@@ -28,7 +28,7 @@ case $1 in
 	#开始停止kafka集群
 	for NODE in ${NODES[*]};do
 		echo "--------$NODE停止kafka集群--------"
-		ssh $NODE "$KAFKA_HOME/bin//kafka-server-stop.sh"	
+		ssh $NODE "$KAFKA_HOME/bin/kafka-server-stop.sh"	
 	done
 	#kafka停止比较慢,延迟几秒再停止zookeeper集群,不然zookeeper集群停止后kafka进程就无法停止了
     sleep 11s
