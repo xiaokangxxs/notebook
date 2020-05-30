@@ -51,6 +51,9 @@
 	-  [Hive更换TEZ引擎](BigData/Hive更换TEZ引擎) 
 	- [MapReduce进阶详解](BigData/MapReduce进阶详解)
 	- [Hadoop企业优化](BigData/Hadoop企业优化)
+- :star: <strong><font color="#0074D9">Spark</font></strong>
+    - [Spark-Local模式环境搭建](BigData/Spark-Local模式环境搭建)
+    - [Spark集群环境搭建(Standalone模式)](BigData/Spark集群环境搭建(Standalone模式))
 - :department_store: <strong><font color="#0074D9">容器化技术</font></strong>
     - [Docker环境下Hadoop单机伪分布式](BigData/Docker环境下Hadoop单机伪分布式)
     - [Docker环境下Hadoop完全分布式](BigData/Docker环境下Hadoop完全分布式)
