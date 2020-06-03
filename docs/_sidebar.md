@@ -49,7 +49,8 @@
 	- [:arrows_counterclockwise: Azkaban](BigData/Azkaban) 
 	- [:eight_pointed_black_star: Kafka](BigData/kafka)
 	- [:shell: Flume](BigData/flume) 
-	- [Hive更换TEZ引擎](BigData/Hive更换TEZ引擎) 
+	- [Hive更换TEZ引擎](BigData/Hive更换TEZ引擎)
+	- [DBeaverEE连接Hive-2.3.6](BigData/DBeaverEE连接Hive-2.3.6)
 	- [MapReduce进阶详解](BigData/MapReduce进阶详解)
 	- [Hadoop企业优化](BigData/Hadoop企业优化)
 - :star: <strong><font color="#0074D9">Spark</font></strong>

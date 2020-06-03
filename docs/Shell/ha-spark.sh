@@ -19,7 +19,7 @@ case $1 in
 "start")
 	#开始启动ha-spark集群
 	for NODE in ${NODES[*]};do
-		echo "--------$NODE启动ha-spark集群"
+		echo "--------$NODE启动ha-spark集群--------"
 		if [ "hadoop01" = $NODE  ];then
 			ssh $NODE "$SHELL_HADOOP start && $SPARK_HOME/sbin/start-all.sh && $SPARK_HOME/sbin/start-history-server.sh"
 		fi
@@ -31,7 +31,7 @@ case $1 in
 "stop")
 	#开始停止ha-spark集群
 	for NODE in ${NODES[*]};do
-		echo "--------$NODE停止ha-spark集群"
+		echo "--------$NODE停止ha-spark集群--------"
 		if [ "hadoop01" = $NODE  ];then
 			ssh $NODE "$SPARK_HOME/sbin/stop-all.sh && $SPARK_HOME/sbin/stop-history-server.sh"
 		fi
@@ -43,7 +43,7 @@ case $1 in
 	$SHELL_HADOOP stop
 	;;
 "status")
-	echo "--------查看ha-spark集群进程信息"
+	echo "--------查看ha-spark集群进程信息--------"
 	$SHELL_CALL jps
 	;;
 *)
