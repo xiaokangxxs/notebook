@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #作者：小康
-#描述：ha-spark集群启动停止以及进程查看脚本
+#描述：ha-spark集群（yarn模式）启动停止以及进程查看脚本
 #微信公众号：小康新鲜事儿
 
 USAGE="使用方法：sh ha-spark.sh start/stop/status"
@@ -10,7 +10,6 @@ if [ $# -ne 1 ];then
 	exit 1
 fi
 
-SHELL_ZK=/home/xiaokang/bin/zk.sh
 SHELL_CALL=/home/xiaokang/bin/call-cluster.sh
 SHELL_HADOOP=/home/xiaokang/bin/ha-hadoop.sh
 SPARK_HOME=/opt/software/spark-2.4.5
@@ -39,9 +38,9 @@ case $1 in
 		if [ "hadoop02" = $NODE  ];then
 			ssh $NODE "$SPARK_HOME/sbin/stop-master.sh"
 		fi
-		#停止ha-hadoop集群以及zookeeper集群
-		$SHELL_HADOOP stop
 	done
+	#停止ha-hadoop集群以及zookeeper集群
+	$SHELL_HADOOP stop
 	;;
 "status")
 	echo "--------查看ha-spark集群进程信息"
