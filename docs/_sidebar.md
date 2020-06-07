@@ -59,6 +59,8 @@
     - [Spark集群环境搭建(Standalone模式)](BigData/Spark集群环境搭建(Standalone模式))
     - [HA-Spark集群环境搭建(Standalone模式)](BigData/HA-Spark集群环境搭建(Standalone模式))
     - [HA-Spark集群环境搭建(Yarn模式)](BigData/HA-Spark集群环境搭建(Yarn模式))
+- :chestnut: <strong><font color="#0074D9">Flink</font></strong>
+    - [Flink-Local模式环境搭建](BigData/Flink-Local模式环境搭建) 
 - :department_store: <strong><font color="#0074D9">容器化技术</font></strong>
     - [Docker环境下Hadoop单机伪分布式](BigData/Docker环境下Hadoop单机伪分布式)
     - [Docker环境下Hadoop完全分布式](BigData/Docker环境下Hadoop完全分布式)
