@@ -63,6 +63,7 @@
     - [Flink-Local模式环境搭建](BigData/Flink-Local模式环境搭建)
     - [Flink集群环境搭建(Standalone模式)](BigData/Flink集群环境搭建(Standalone模式))
     - [HA-Flink集群环境搭建(Standalone模式)](BigData/HA-Flink集群环境搭建(Standalone模式))
+    - [HA-Flink集群环境搭建(Yarn模式)](BigData/HA-Flink集群环境搭建(Yarn模式))
 - :department_store: <strong><font color="#0074D9">容器化技术</font></strong>
     - [Docker环境下Hadoop单机伪分布式](BigData/Docker环境下Hadoop单机伪分布式)
     - [Docker环境下Hadoop完全分布式](BigData/Docker环境下Hadoop完全分布式)
