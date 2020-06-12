@@ -38,6 +38,7 @@
     - [kf脚本](Shell/大数据常用shell脚本之kf脚本)
     - [fl脚本](Shell/大数据常用shell脚本之fl脚本)
     - [ha-spark脚本(yarn模式)](Shell/大数据常用shell脚本之ha-spark脚本)
+    - [ha-flink脚本(yarn模式)](Shell/大数据常用shell脚本之ha-flink脚本)
 - :books: <strong><font color="#0074D9">大数据</font></strong>
     - [大数据概论及Hadoop生态系统](BigData/大数据概论及Hadoop生态系统)
     - [:construction_worker: Zookeeper](BigData/Zookeeper)
