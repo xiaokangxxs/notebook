@@ -30,6 +30,7 @@
     - [:ocean: Sqoop安装及基本使用](BigData/Sqoop安装及基本使用)
     - [:snake: Linux下Python的安装](Linux/python)
     - [:wrench: DataX安装及基本使用](BigData/DataX安装及基本使用)
+    - [:leaves: MongoDB安装及基本使用](BigData/MongoDB安装及基本使用)
     - [:dolphin: CentOS7.x完全卸载mysql](SQL/installation/CentOS7.x完全卸载mysql)
 - :droplet: <strong><font color="#0074D9">大数据常用Shell脚本</font></strong>
     - [分发脚本](Shell/大数据常用shell脚本之分发脚本)
