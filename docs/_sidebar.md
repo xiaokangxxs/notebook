@@ -54,6 +54,7 @@
 	- [Hive更换TEZ引擎](BigData/Hive更换TEZ引擎)
 	- [Hive更换Spark引擎](BigData/Hive更换Spark引擎)
 	- [DBeaverEE连接Hive-2.3.6](BigData/DBeaverEE连接Hive-2.3.6)
+	- [DBeaverEE连接MongoDB-4.2.8](BigData/DBeaverEE连接MongoDB-4.2.8)
 	- [MapReduce进阶详解](BigData/MapReduce进阶详解)
 	- [Hadoop企业优化](BigData/Hadoop企业优化)
 - :star: <strong><font color="#0074D9">Spark</font></strong>
