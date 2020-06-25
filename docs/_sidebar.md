@@ -51,6 +51,7 @@
 	- [:arrows_counterclockwise: Azkaban](BigData/Azkaban) 
 	- [:eight_pointed_black_star: Kafka](BigData/kafka)
 	- [:shell: Flume](BigData/flume) 
+	- [HA-Hadoop集群动态添加、删除节点](BigData/HA-Hadoop集群动态添加、删除节点)
 	- [Hive更换TEZ引擎](BigData/Hive更换TEZ引擎)
 	- [Hive更换Spark引擎](BigData/Hive更换Spark引擎)
 	- [DBeaverEE连接Hive-2.3.6](BigData/DBeaverEE连接Hive-2.3.6)
