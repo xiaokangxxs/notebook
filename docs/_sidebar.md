@@ -52,6 +52,7 @@
 	- [:eight_pointed_black_star: Kafka](BigData/kafka)
 	- [:shell: Flume](BigData/flume)
 	- [玩转大数据可视化之HUE(4.7.0)](BigData/玩转大数据可视化之HUE)
+	- [HUE与Hive集成](BigData/HUE与Hive集成)
 	- [Spark机器学习之回归模型](BigData/Spark机器学习之回归模型)
 	- [HA-Hadoop集群动态添加、删除节点](BigData/HA-Hadoop集群动态添加、删除节点)
 	- [Hive更换TEZ引擎](BigData/Hive更换TEZ引擎)
