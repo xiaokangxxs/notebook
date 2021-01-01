@@ -79,6 +79,8 @@
     - [Docker之镜像拉取、删除及重命名](BigData/Docker之镜像拉取、删除及重命名)
     - [Docker环境下HA(高可用)-Hadoop集群](BigData/Docker环境下HA(高可用)-Hadoop集群)
     - [DockerCompose搭建Zookeeper集群](BigData/DockerCompose搭建Zookeeper集群)
+- :snake: <strong><font color="#0074D9">Python</font></strong>
+    - [:book: 初识python](Python/python-01)
 - :four_leaf_clover: <strong><font color="#0074D9">开源框架</font></strong>
     - [:bear: Hibernate](Framework/hibernate)
     - [:bird: Mybatis](Framework/mybatis)
