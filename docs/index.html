@@ -8,6 +8,7 @@
   <meta name="description" content="Description">
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" href="css/themes/buble.css">
+  <!--<link rel="stylesheet" href="css/themes/style.min.css">-->
   <link rel="stylesheet" href="css/dist/gitalk.css">
   <!-- gif control -->
   <link rel="stylesheet" href="css/dist/docsify-gifcontrol.css">
@@ -22,6 +23,9 @@
   <!--<link rel="stylesheet" href="css/sidebar-folder.min.css" />-->
   <script src="js/jquery-3.4.1.min.js"></script>
   <script src="js/typed.min.js"></script>
+  <!-- Dark Mode-->
+  <link rel="stylesheet" href="css/themes/dark/style.min.css">
+  <link rel="stylesheet" href="css/themes/dark/index.min.js">
   <style>
 	.wechat{
 		margin-bottom: 8px;
@@ -82,6 +86,18 @@
 	  maxLevel: 3,//最大的内容表级别。
       coverpage: true,
 	  onlyCover:true,
+	  darkMode:{
+		dark: {
+		    background: "#1c2022",
+		    toggleBtnBg: "#34495e",
+		    textColor: "#b4b4b4"
+		},
+	    light: {
+		    background: "white",
+		    toggleBtnBg: "var(--theme-color)",
+		    textColor: "var(--theme-color)"
+	    }
+	  },
 	  plantuml: {
 		skin: 'classic',
       },
