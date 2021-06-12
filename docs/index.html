@@ -18,6 +18,9 @@
   <link rel="stylesheet" href="css/regular.css" />
   <link rel="stylesheet" href="css/solid.css" />
   <link rel="stylesheet" href="css/sidebar.min.css" />
+  <!-- 复制弹窗 -->
+  <link rel="stylesheet" href="css/sweetalert.min.css" />
+  <script src="js/sweetalert.min.js"></script>
   <!-- 春节 -->
   <!--<link rel="stylesheet" href="css/springfestival.css" />-->
   <!--<link rel="stylesheet" href="css/sidebar-folder.min.css" />-->
@@ -25,7 +28,7 @@
   <script src="js/typed.min.js"></script>
   <!-- Dark Mode-->
   <link rel="stylesheet" href="css/themes/dark/style.min.css">
-  <link rel="stylesheet" href="css/themes/dark/index.min.js">
+  <script src="css/themes/dark/index.min.js"></script>
   <style>
 	.wechat{
 		margin-bottom: 8px;
@@ -105,11 +108,11 @@
             maxAge: 86400000, // 过期时间，单位毫秒，默认一天
             noData: '小康温馨提示:未找到结果!',//搜索不到结果时显示
             paths: 'auto',//自动
-            placeholder: '请输入要搜索的关键字',//搜索框提示
+            placeholder: '🔍 请输入要搜索的关键字',//搜索框提示
 			depth: 4                       // 搜索标题的最大程级, 1 - 6
         },
 	   footer: {
-		  copy: '<span>小康个人文档-Copyright &copy; 2019-2020</span>',
+		  copy: '<span id="sitetime"></span> <br> <span>小康个人文档-Copyright &copy; 2019-至今</span> <a href="https://www.xiaokang.cool/" target="_blank">🏷️ 小康个人文档</a>',
 		  auth: '小康版权所有',
 		  pre: '<hr/>',
 		  style: 'text-align: right;'
@@ -136,6 +139,14 @@
       }
     }
   </script>
+  <!-- 回到顶部 -->
+  <script src="js/top/jquery.js"></script>
+  <script src="js/top/jquery.goup.js"></script>
+  <!-- 访问量统计 -->
+  <script async src="js/busuanzi.pure.mini.js"></script>
+  <!-- live2d -->
+  <script src="js/L2Dwidget.0.min.js"></script>
+  <script src="js/L2Dwidget.min.js"></script>
   <!-- PDFObject.js is a required dependency of this plugin -->
   <script src="js/pdfobject/pdfobject.min.js"></script> 
   <!-- This is the source code of the pdf embed plugin -->
@@ -241,6 +252,91 @@
     room: 'personal_documents-xiaokang/community'
   };
 </script>
+<script>
+  document.body.oncopy = function () {
+    swal("复制成功 🎉",
+            "若要转载或引用请务必保留原文链接，并申明来源。如果你觉得本仓库不错，那就来 GitHub 给个 Star 吧 😊   - by 小康",
+            "success"); };
+</script>
+<!-- 运行时间统计 -->
+<script language=javascript>
+  function siteTime() {
+    window.setTimeout("siteTime()", 1000);
+    var seconds = 1000;
+    var minutes = seconds * 60;
+    var hours = minutes * 60;
+    var days = hours * 24;
+    var years = days * 365;
+    var today = new Date();
+    var todayYear = today.getFullYear();
+    var todayMonth = today.getMonth() + 1;
+    var todayDate = today.getDate();
+    var todayHour = today.getHours();
+    var todayMinute = today.getMinutes();
+    var todaySecond = today.getSeconds();
+    /* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+    year - 作为date对象的年份，为4位年份值
+    month - 0-11之间的整数，做为date对象的月份
+    day - 1-31之间的整数，做为date对象的天数
+    hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+    minutes - 0-59之间的整数，做为date对象的分钟数
+    seconds - 0-59之间的整数，做为date对象的秒数
+    microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+    var t1 = Date.UTC(2020, 01, 14, 11, 24, 00); //北京时间2020-02-10 00:00:00
+    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+    var diff = t2 - t1;
+    var diffYears = Math.floor(diff / years);
+    var diffDays = Math.floor((diff / days) - diffYears * 365);
+    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes);
+    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds);
+    document.getElementById("sitetime").innerHTML = " 本网站已稳定运行 " + diffYears + " 年 " + diffDays + " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒 ";
+  }
+  siteTime();
+</script>
+<script>
+  L2Dwidget.init({
+    "model": {
+      //jsonpath控制显示那个小萝莉模型，
+      //(切换模型需要改动)
+      jsonPath: "https://unpkg.com/live2d-widget-model-koharu@1.0.5/assets/koharu.model.json",
+      "scale": 1
+    },
+    "display": {
+      "position": "right", //看板娘的表现位置
+      "width": 70,  //小萝莉的宽度
+      "height": 140, //小萝莉的高度
+      "hOffset": 35,
+      "vOffset": -20
+    },
+    "mobile": {
+      "show": true,
+      "scale": 0.5
+    },
+    "react": {
+      "opacityDefault": 0.7,
+      "opacityOnHover": 0.2
+    }
+  });
+</script>
+<script type="text/javascript">
+    $(document).ready(function () {
+      $.goup({
+        trigger: 100,
+        bottomOffset: 32,
+        locationOffset: 32,
+        title: '置顶',
+        titleAsText: true
+      });
+    });
+  </script>
+<!-- 旧域名跳转 -->
+<!--<script>
+    if (location.host != "www.xiaokang.cool") {
+        alert("本网站已迁移到新网址：www.xiaokang.cool，请按确定前往新网址");
+        window.location.href ="https://www.xiaokang.cool/";
+    }
+</script>-->
 <script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
 </body>
 </html>
