@@ -86,7 +86,7 @@ let $data=[
 <div style="position:fixed;right:40px;top:200px;border: 1px solid lightgrey">
 	<div style="text-align: center;padding-top: 5px"><font>小康公众号</font></div>
 	<div style="padding:5px;width:99px;height:99px">
-		<img src="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/gzh.jpg">
+		<img src="gzh.jpg">
         <br><br>
 	</div>
 </div>
