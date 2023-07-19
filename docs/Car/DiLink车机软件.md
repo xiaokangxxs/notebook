@@ -6,6 +6,6 @@
 
 ![xiaokangxxs-xiaokang-car-后](https://cdn.staticaly.com/gh/xiaokangxxs/images@master/car/xiaokangxxs-xiaokang-car-后.41zc3dbxiz80.jpg)
 
-![xiaokangxxs-20230713_191149](https://cdn.staticaly.com/gh/xiaokangxxs/images@master/car/xiaokangxxs-20230713_191149.6l5qcn5tf600.jpg)
+![20230713_191149](https://cdn.staticaly.com/gh/xiaokangxxs/picx-images-hosting@master/car/20230713_191149.61rfb4ycj9g0.webp)
 
-![xiaokangxxs-20230713_191221](https://cdn.staticaly.com/gh/xiaokangxxs/images@master/car/xiaokangxxs-20230713_191221.w1131lldszk.jpg)
+![20230713_191221](https://cdn.staticaly.com/gh/xiaokangxxs/picx-images-hosting@master/car/20230713_191221.7g8rwwescrk0.webp)
